@@ -114,19 +114,43 @@ The YAML front matter SHOULD begin and end with `---`. It SHOULD include `versio
 ```yaml
 ---
 version: 0.1
-id: agent.example.assistant
-name: Example Assistant
-description: An AI agent that helps with research and workflow automation.
-owners:
-  - type: organization
-    name: Example Labs
-    url: https://example.com
+identity:
+  id: agent.example.assistant
+  did: did:web:example.com:agents:example-assistant
+  name: Example Assistant
+  type: ai_agent
+  version: 1.2.0
+  description: An AI agent that helps with research and workflow automation.
+owner:
+  type: organization
+  name: Example Labs
+  url: https://example.com
+  contact: security@example.com
 verification:
-  - type: signed-claim
-    url: https://example.com/.well-known/openidentity/example-assistant.json
-skills:
-  - research
-  - summarization
+  type: issuer-backed-proof
+  method: kya
+  issuer: Example Verifier
+  subject: did:web:example.com:agents:example-assistant
+  proof_url: https://example.com/.well-known/openidentity/example-assistant.json
+  status_url: https://verifier.example.com/status/example-assistant
+auth:
+  authorization_url: https://auth.example.com/oauth/authorize
+  provider: example-auth
+  delegated_authorization: true
+  scopes:
+    - read:public-profile
+    - request:tool-access
+  policies:
+    - https://example.com/policies/agent-access
+wallet:
+  did: did:web:example.com:agents:example-assistant
+  blockchain_address: eip155:1:0x0000000000000000000000000000000000000000
+  payment_address: https://pay.example.com/example-assistant
+  signing_keys:
+    - did:web:example.com:agents:example-assistant#key-1
+roles:
+  - research_assistant
+  - workflow_automation_helper
 tools:
   - type: mcp
     name: example-tools
@@ -139,14 +163,6 @@ memory:
     expires_at: null
     description: Public knowledge index used for retrieval-augmented responses.
     schema: https://example.com/schemas/memory-index.json
-wallets:
-  - type: payment-link
-    url: https://pay.example.com/example-assistant
-auth:
-  authorization_url: https://auth.example.com/oauth/authorize
-  scopes:
-    - read:public-profile
-    - request:tool-access
 ---
 ```
 
@@ -167,7 +183,45 @@ The Markdown body SHOULD explain the structured metadata in prose. It MAY includ
 
 The body SHOULD be safe to display to humans and safe for LLMs to consume as context.
 
-## 5. Memory references
+## 5. Required top-level identity sections
+
+OpenIdentity manifests SHOULD define separate top-level sections for stable identity, controller metadata, verification, authorization, wallet references, and roles. Keeping these concerns separate helps consumers distinguish who the agent is, who controls it, who has verified that control relationship, what the agent may access, and how it may sign or receive value.
+
+### `identity`
+
+The `identity` section describes the stable agent identifier and agent-facing metadata. It SHOULD include:
+
+- `id`: A stable, portable identifier for the agent.
+- `did`: An optional decentralized identifier associated with the agent.
+- `name`: A human-readable agent name.
+- `type`: The agent category, such as `ai_agent`, `assistant`, `workflow_agent`, or another explicit type.
+- `version`: The agent, product, or deployment version. This is distinct from the manifest format `version`.
+
+### `owner`
+
+The `owner` section describes the human, organization, team, or legal entity that controls or is responsible for the agent. It MAY include fields such as `type`, `name`, `url`, `contact`, organization identifiers, jurisdiction, support contacts, or incident-response contacts.
+
+### `verification`
+
+The `verification` section describes KYA, issuer-backed, signed, or credential-backed proof that the agent is controlled by, operated by, or backed by a verified human or organization. It SHOULD identify the verification method, issuer, subject, proof location, current status location, and revocation or expiry information when available.
+
+`verification` proves who controls or backs the agent. It is a trust signal about identity, controller status, organizational backing, human verification, or issuer attestations. It MUST NOT be interpreted as a grant of access to tools, data, memory, payment accounts, or protected services.
+
+### `auth`
+
+The `auth` section describes how the agent requests or receives authorization for protected resources. It MAY reference OAuth or OIDC authorization endpoints, WorkOS-style organization or tenant metadata, delegated authorization flows, required scopes, roles used by an authorization provider, and policy documents.
+
+`auth` controls what the agent may access. It is the place to describe scopes, consent, authorization URLs, policy references, resource servers, and delegated access constraints. A verified owner in `verification` does not automatically imply any permission in `auth`; consumers MUST still enforce the referenced authorization flow and policy.
+
+### `wallet`
+
+The `wallet` section lists wallet, account, payment, and signing references associated with the agent. It MAY include a DID, blockchain address, payment address, public signing-key references, account aliases, or links to verifiable wallet-binding claims. It MUST NOT include private keys, seed phrases, bearer tokens, or other secrets.
+
+### `roles`
+
+The `roles` section lists declared roles, allowed operating modes, or bounded modes of behavior for the agent. Roles SHOULD be stable strings that a user, orchestrator, policy engine, or verifier can understand, such as `research_assistant`, `customer_support_agent`, `read_only_auditor`, or `payment_initiator_pending_approval`.
+
+## 6. Memory references
 
 OpenIdentity memory entries define references to external memory sources, not raw stored memories. A memory entry MUST identify where an authorized reader or runtime can discover, request, or retrieve memory through the referenced provider. It MUST NOT embed private memory contents directly in the manifest.
 
@@ -204,7 +258,7 @@ memory:
 
 Consumers MUST interpret memory entries as pointers and access instructions only. If a memory reference requires authorization, the consumer MUST obtain access through the declared provider or a compatible authorization flow rather than relying on any credential embedded in the OpenIdentity file.
 
-## 6. Security model
+## 7. Security model
 
 OpenIdentity is a discovery and verification aid, not a secret store or standalone access-control system.
 
@@ -232,7 +286,7 @@ Any linked credential, claim, tool authorization, memory grant, or wallet associ
 
 Consumers MUST NOT treat a manifest's claims as true solely because they appear in the file. Consumers SHOULD verify signatures, domains, issuer trust, organization membership, consent, and runtime behavior before granting access or relying on sensitive claims.
 
-## 7. Versioning
+## 8. Versioning
 
 OpenIdentity starts with:
 
