@@ -1,0 +1,143 @@
+{
+  "generated_at": "2026-07-16T20:50:31.004547+00:00",
+  "project": "OpenIdentity",
+  "product": "AxiomID",
+  "canonical_manifest": "openidentity.md",
+  "languages": [
+    "en",
+    "ar"
+  ],
+  "text_directions": [
+    "ltr",
+    "rtl"
+  ],
+  "themes": [
+    "light",
+    "dark"
+  ],
+  "protocols": [
+    "MCP",
+    "A2A",
+    "DID",
+    "W3C Verifiable Credentials",
+    "OAuth 2.0",
+    "OpenID Connect",
+    "Wallet references",
+    "SIWE",
+    "CAIP",
+    "LLMs.txt",
+    "agentic.txt"
+  ],
+  "safety": {
+    "memory": "references-only",
+    "growth": "consent-first",
+    "do_not_index": [
+      "private memories",
+      "raw chat logs",
+      "secret tokens",
+      "private keys",
+      "identity documents"
+    ]
+  },
+  "documents": [
+    {
+      "path": "README.md",
+      "kind": "overview",
+      "title": "OpenIdentity | الهوية المفتوحة",
+      "description": "Human-facing project overview and quick start",
+      "bytes": 13712,
+      "lines": 274,
+      "missing": false
+    },
+    {
+      "path": "agentic.md",
+      "kind": "agent-discovery",
+      "title": "agentic.md — AxiomID / OpenIdentity Discovery Index",
+      "description": "Rich agent-facing discovery index",
+      "bytes": 3175,
+      "lines": 67,
+      "missing": false
+    },
+    {
+      "path": "agentic.txt",
+      "kind": "agent-discovery-text",
+      "title": "AxiomID / OpenIdentity Agentic Discovery",
+      "description": "Compact crawler and agent discovery summary",
+      "bytes": 908,
+      "lines": 16,
+      "missing": false
+    },
+    {
+      "path": "docs/landing-page.md",
+      "kind": "landing",
+      "title": "AxiomID Landing Page Blueprint | مخطط صفحة الهبوط",
+      "description": "AxiomID landing page content and UI direction",
+      "bytes": 7467,
+      "lines": 132,
+      "missing": false
+    },
+    {
+      "path": "docs/mvp-poc-use-cases.md",
+      "kind": "mvp-poc",
+      "title": "MVP, Proof of Concept, and Use Cases | المنتج الأولي وإثبات المفهوم",
+      "description": "MVP, proof-of-concept, and use-case guide",
+      "bytes": 4508,
+      "lines": 84,
+      "missing": false
+    },
+    {
+      "path": "docs/indexing/agentic-indexing.md",
+      "kind": "indexing",
+      "title": "Agentic Indexing and Discovery | الفهرسة والاكتشاف للوكلاء",
+      "description": "Agentic indexing and discovery guide",
+      "bytes": 2774,
+      "lines": 57,
+      "missing": false
+    },
+    {
+      "path": "spec/openidentity-v0.1.md",
+      "kind": "spec",
+      "title": "OpenIdentity v0.1 Specification",
+      "description": "OpenIdentity draft specification",
+      "bytes": 2654,
+      "lines": 54,
+      "missing": false
+    },
+    {
+      "path": "schema/openidentity.schema.json",
+      "kind": "schema",
+      "title": "Untitled",
+      "description": "OpenIdentity JSON Schema",
+      "bytes": 2567,
+      "lines": 93,
+      "missing": false
+    },
+    {
+      "path": "examples/minimal.openidentity.md",
+      "kind": "example",
+      "title": "Minimal OpenIdentity Manifest",
+      "description": "Minimal manifest example",
+      "bytes": 338,
+      "lines": 19,
+      "missing": false
+    },
+    {
+      "path": "examples/openidentity.md",
+      "kind": "example",
+      "title": "Example Agent OpenIdentity Profile",
+      "description": "Standard manifest example",
+      "bytes": 4899,
+      "lines": 102,
+      "missing": false
+    },
+    {
+      "path": "examples/full.openidentity.md",
+      "kind": "example",
+      "title": "Full OpenIdentity Manifest Example",
+      "description": "Full manifest example",
+      "bytes": 2425,
+      "lines": 80,
+      "missing": false
+    }
+  ]
+}

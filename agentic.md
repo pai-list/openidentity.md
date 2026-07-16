@@ -21,6 +21,12 @@ This file is the agent-facing discovery index for OpenIdentity and AxiomID-compa
 | `schema/openidentity.schema.json` | Machine validation schema |
 | `docs/landing-page.md` | AxiomID landing page content and design blueprint |
 | `docs/mvp-poc-use-cases.md` | MVP, proof-of-concept, use cases, and growth model |
+| `docs/indexing/agentic-indexing.md` | Indexing rules, metadata, and script workflow |
+| `frontend/index.html` | Static bilingual UI/UX prototype |
+| `frontend/styles.css` | Light/dark responsive design system |
+| `frontend/app.js` | Language and theme interactions |
+| `scripts/build_agentic_index.py` | Discovery index generator |
+| `dist/agentic-index.json` | Generated machine-readable agentic index |
 | `docs/memory-discovery.md` | Approved memory discovery guidance |
 | `docs/security.md` | Security model and threat notes |
 | `docs/verification.md` | Human and controller verification guidance |
@@ -49,10 +55,11 @@ This file is the agent-facing discovery index for OpenIdentity and AxiomID-compa
 1. Read `README.md` for positioning.
 2. Read `spec/openidentity-v0.1.md` before generating or validating manifests.
 3. Validate structured data with `schema/openidentity.schema.json`.
-4. Treat memory links as pointers, not permission to scrape private memory.
-5. Respect policy URLs, access labels, expiration dates, and revocation fields.
-6. Preserve bilingual English/Arabic content when summarizing or transforming pages.
-7. Prefer consent-first lead capture and verification workflows.
+4. Refresh `dist/agentic-index.json` with `python3 scripts/build_agentic_index.py` after content changes.
+5. Treat memory links as pointers, not permission to scrape private memory.
+6. Respect policy URLs, access labels, expiration dates, and revocation fields.
+7. Preserve bilingual English/Arabic content when summarizing or transforming pages.
+8. Prefer consent-first lead capture and verification workflows.
 
 ## Marketing Summary
 

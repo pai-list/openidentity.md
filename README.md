@@ -41,6 +41,17 @@ openidentity.md/
   ROADMAP.md
   agentic.md
   agentic.txt
+  frontend/
+    index.html
+    styles.css
+    app.js
+  i18n/
+    en.json
+    ar.json
+  scripts/
+    build_agentic_index.py
+  dist/
+    agentic-index.json
   spec/
     openidentity-v0.1.md
   schema/
@@ -52,6 +63,8 @@ openidentity.md/
   docs/
     landing-page.md
     mvp-poc-use-cases.md
+    indexing/
+      agentic-indexing.md
     security.md
     memory-discovery.md
     verification.md
@@ -62,11 +75,15 @@ openidentity.md/
 | `README.md` | Project positioning and quick start | التعريف بالمشروع والبدء السريع |
 | `ROADMAP.md` | Product and standards roadmap | خارطة طريق المنتج والمعيار |
 | `agentic.md` / `agentic.txt` | Agent-facing discovery indexes | فهارس اكتشاف موجهة للوكلاء |
+| `frontend/` | Static bilingual UI prototype with light/dark mode | نموذج واجهة ثابت ثنائي اللغة مع وضع فاتح/داكن |
+| `i18n/` | Translation seed files for English and Arabic | ملفات ترجمة أولية للعربية والإنجليزية |
+| `scripts/build_agentic_index.py` | Builds `dist/agentic-index.json` for discovery | ينشئ فهرس الاكتشاف `dist/agentic-index.json` |
 | `spec/openidentity-v0.1.md` | Human-readable v0.1 specification | مواصفة v0.1 قابلة للقراءة |
 | `schema/openidentity.schema.json` | JSON Schema for validation | مخطط JSON للتحقق |
 | `examples/` | Minimal, standard, and full manifests | أمثلة مختصرة وقياسية وكاملة |
 | `docs/landing-page.md` | AxiomID landing page content and design blueprint | محتوى وتصميم صفحة هبوط AxiomID |
 | `docs/mvp-poc-use-cases.md` | MVP, proof-of-concept, use cases, and consent-first growth | المنتج الأولي وإثبات المفهوم وحالات الاستخدام والنمو بالموافقة |
+| `docs/indexing/agentic-indexing.md` | Indexing model, rules, metadata, and script workflow | نموذج الفهرسة والقواعد والبيانات وسير عمل السكربت |
 | `docs/security.md` | Security model and threat notes | نموذج الأمان والتهديدات |
 | `docs/memory-discovery.md` | Approved memory discovery patterns | أنماط اكتشاف الذاكرة المعتمدة |
 | `docs/verification.md` | Human and controller verification | التحقق من الإنسان والمتحكم |
@@ -164,13 +181,13 @@ Use recognizable protocol badges and logo slots as a trust-building marketing pa
 
 ### MVP, POC, and Use Cases
 
-The MVP should focus on consent-first profile creation, bilingual rendering, light/dark mode, manifest validation, search, verification states, protocol badges, and access-request flows. The full proof-of-concept journey, enterprise use cases, and ethical growth model are documented in [`docs/mvp-poc-use-cases.md`](docs/mvp-poc-use-cases.md).
+The MVP should focus on consent-first profile creation, bilingual rendering, light/dark mode, manifest validation, search, verification states, protocol badges, access-request flows, and the static frontend prototype in [`frontend/index.html`](frontend/index.html). The full proof-of-concept journey, enterprise use cases, and ethical growth model are documented in [`docs/mvp-poc-use-cases.md`](docs/mvp-poc-use-cases.md).
 
 يركز المنتج الأولي على إنشاء الملفات بالموافقة، العرض بالعربية والإنجليزية، الوضع الفاتح والداكن، التحقق من الملفات، البحث، حالات التحقق، شارات البروتوكولات، ومسارات طلب الوصول. تم توثيق رحلة إثبات المفهوم وحالات الاستخدام المؤسسية ونموذج النمو الأخلاقي في [`docs/mvp-poc-use-cases.md`](docs/mvp-poc-use-cases.md).
 
 ### Agent Discovery Indexes
 
-This repository now includes [`agentic.md`](agentic.md) and [`agentic.txt`](agentic.txt) so AI agents, crawlers, and enterprise platforms can quickly discover the project purpose, important documents, supported protocols, preferred behavior, and safety constraints.
+This repository now includes [`agentic.md`](agentic.md), [`agentic.txt`](agentic.txt), [`docs/indexing/agentic-indexing.md`](docs/indexing/agentic-indexing.md), and [`dist/agentic-index.json`](dist/agentic-index.json) so AI agents, crawlers, and enterprise platforms can quickly discover the project purpose, important documents, supported protocols, preferred behavior, and safety constraints. Run `python3 scripts/build_agentic_index.py` after documentation changes to refresh the generated index.
 
 ---
 

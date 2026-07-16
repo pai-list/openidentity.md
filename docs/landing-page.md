@@ -118,3 +118,14 @@ Avoid dark-pattern “user farming.” Use transparent, opt-in audience developm
 - **Compliance posture:** references to policy, verification, revocation, and audit metadata.
 - **Interoperability:** ready for MCP, A2A, DID, verifiable credentials, OAuth, OpenID Connect, wallets, and agent discovery files.
 - **Deployment:** works on GitHub, docs sites, AxiomID profiles, and enterprise knowledge portals.
+
+
+## Frontend Prototype
+
+The static MVP prototype lives in `frontend/index.html` with `frontend/styles.css` and `frontend/app.js`. It demonstrates:
+
+- Responsive landing sections for hero, product, protocols, use cases, and docs.
+- English/Arabic language switching with RTL support.
+- Light/dark mode with saved user preference.
+- Protocol logo slots for MCP, A2A, DID, VC, OAuth/OIDC, wallets, and `agentic.txt`.
+- Clear paths into the README, landing blueprint, MVP/POC guide, indexing guide, and discovery files.
