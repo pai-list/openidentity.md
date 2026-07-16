@@ -31,6 +31,15 @@
 
 OpenIdentity is designed to work well inside [AxiomID](https://github.com/Moeabdelaziz007/AxiomID) and the [AxiomID app](https://axiomid.app/) as a practical, portable manifest layer for agent discovery and trust.
 
+
+---
+
+## Founder & Creator | المؤسس والمبتكر
+
+OpenIdentity was founded and created by [Moe Abdelaziz](https://github.com/Moeabdelaziz007).
+
+تم تأسيس وإنشاء OpenIdentity بواسطة [Moe Abdelaziz](https://github.com/Moeabdelaziz007).
+
 ---
 
 ## Repository Map | خريطة المستودع
