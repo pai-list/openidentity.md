@@ -1,6 +1,6 @@
 const translations = {
   en: {
-    nav_product: 'Product', nav_protocols: 'Protocols', nav_use_cases: 'Use cases', nav_docs: 'Docs',
+    nav_product: 'Product', nav_protocols: 'Protocols', nav_use_cases: 'Use cases', nav_services: 'Services', nav_docs: 'Docs',
     hero_eyebrow: 'Built for agents, trusted by humans', hero_title: 'Identity for the agentic era.', hero_lede: 'AxiomID turns every AI agent, controller, tool, memory index, wallet, and policy endpoint into a discoverable OpenIdentity profile.',
     cta_create: 'Create an OpenIdentity', cta_spec: 'Read the spec', trust_bilingual: 'English + Arabic', trust_dark: 'Light/Dark', trust_schema: 'Schema validated',
     verified_controller: 'Verified human controller', role: 'Role', memory: 'Memory', tools: 'Tools', auth: 'Auth',
@@ -12,10 +12,11 @@ const translations = {
     protocol_eyebrow: 'Marketing strip', protocol_title: 'Protocol logos become trust shortcuts.',
     use_eyebrow: 'Enterprise MVP', use_title: 'Proof-of-concept pages that matter.', use_body: 'Start with the flows that prove trust: create profile, validate manifest, verify controller, publish discovery files, search, request access, and measure demand.',
     flow_create: 'Create profile', flow_verify: 'Verify controller', flow_publish: 'Publish indexes', flow_request: 'Request access',
+    services_eyebrow: 'Agentic services', services_title: 'How.now for hosting. Ghost for database.', services_body: 'Deploy the bilingual frontend and discovery files to How.now, then store profiles, access requests, verification states, and discovery events in Ghost Postgres.', services_hosting: 'Agentic hosting target for the static frontend, docs entry points, and discovery files.', services_database: 'Agent-native Postgres database layer for indexes, profiles, requests, and audit events.',
     docs_eyebrow: 'Indexable by default', docs_title: 'Every important page has a discovery path.'
   },
   ar: {
-    nav_product: 'المنتج', nav_protocols: 'البروتوكولات', nav_use_cases: 'حالات الاستخدام', nav_docs: 'الوثائق',
+    nav_product: 'المنتج', nav_protocols: 'البروتوكولات', nav_use_cases: 'حالات الاستخدام', nav_services: 'الخدمات', nav_docs: 'الوثائق',
     hero_eyebrow: 'مصمم للوكلاء وموثوق للبشر', hero_title: 'الهوية لعصر الوكلاء.', hero_lede: 'تحوّل AxiomID كل وكيل ذكاء اصطناعي ومتحكم وأداة وفهرس ذاكرة ومحفظة وسياسة إلى ملف OpenIdentity قابل للاكتشاف.',
     cta_create: 'أنشئ OpenIdentity', cta_spec: 'اقرأ المواصفة', trust_bilingual: 'العربية + الإنجليزية', trust_dark: 'فاتح/داكن', trust_schema: 'تحقق بالمخطط',
     verified_controller: 'متحكم بشري موثق', role: 'الدور', memory: 'الذاكرة', tools: 'الأدوات', auth: 'التفويض',
@@ -27,6 +28,7 @@ const translations = {
     protocol_eyebrow: 'شريط تسويقي', protocol_title: 'شعارات البروتوكولات تختصر الثقة.',
     use_eyebrow: 'منتج أولي مؤسسي', use_title: 'صفحات إثبات مفهوم مهمة.', use_body: 'ابدأ بالمسارات التي تثبت الثقة: إنشاء الملف، التحقق من manifest، توثيق المتحكم، نشر ملفات الاكتشاف، البحث، طلب الوصول، وقياس الطلب.',
     flow_create: 'إنشاء الملف', flow_verify: 'توثيق المتحكم', flow_publish: 'نشر الفهارس', flow_request: 'طلب الوصول',
+    services_eyebrow: 'خدمات وكيلية', services_title: 'How.now للاستضافة و Ghost لقاعدة البيانات.', services_body: 'انشر الواجهة ثنائية اللغة وملفات الاكتشاف على How.now، ثم خزّن الملفات وطلبات الوصول وحالات التحقق وأحداث الاكتشاف في Ghost Postgres.', services_hosting: 'هدف استضافة وكيلي للواجهة الثابتة ومداخل الوثائق وملفات الاكتشاف.', services_database: 'طبقة Postgres موجهة للوكلاء للفهرسة والملفات والطلبات وأحداث التدقيق.',
     docs_eyebrow: 'قابل للفهرسة افتراضياً', docs_title: 'كل صفحة مهمة لها مسار اكتشاف.'
   }
 };

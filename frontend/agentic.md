@@ -22,6 +22,9 @@ This file is the agent-facing discovery index for OpenIdentity and AxiomID-compa
 | `docs/landing-page.md` | AxiomID landing page content and design blueprint |
 | `docs/mvp-poc-use-cases.md` | MVP, proof-of-concept, use cases, and growth model |
 | `docs/indexing/agentic-indexing.md` | Indexing rules, metadata, and script workflow |
+| `docs/services/how-now-ghost.md` | How.now hosting and Ghost database integration plan |
+| `scripts/providers/deploy_how_now.sh` | How.now deployment wrapper |
+| `scripts/providers/ghost_schema.sql` | Ghost Postgres MVP schema |
 | `frontend/index.html` | Static bilingual UI/UX prototype |
 | `frontend/styles.css` | Light/dark responsive design system |
 | `frontend/app.js` | Language and theme interactions |
@@ -49,6 +52,8 @@ This file is the agent-facing discovery index for OpenIdentity and AxiomID-compa
 - agentic.txt
 - OpenIdentity
 - AxiomID
+- How.now
+- Ghost Postgres
 
 ## Preferred Agent Behavior
 

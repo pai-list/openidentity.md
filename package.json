@@ -9,7 +9,8 @@
     "start": "python3 -m http.server 3000 --directory frontend",
     "check:json": "python3 -m json.tool schema/openidentity.schema.json >/dev/null && python3 -m json.tool dist/agentic-index.json >/dev/null && python3 -m json.tool i18n/en.json >/dev/null && python3 -m json.tool i18n/ar.json >/dev/null",
     "check:frontend": "python3 -m http.server 8765 --directory frontend >/tmp/openidentity-http.log 2>&1 & echo $! > /tmp/openidentity-http.pid; sleep 1; curl -fsS http://127.0.0.1:8765/ >/tmp/openidentity-index.html; kill $(cat /tmp/openidentity-http.pid)",
-    "check": "npm run build:index && npm run check:json && npm run check:frontend"
+    "check": "npm run build:index && npm run check:json && npm run check:frontend",
+    "deploy:how-now": "./scripts/providers/deploy_how_now.sh"
   },
   "keywords": [
     "ai-agents",

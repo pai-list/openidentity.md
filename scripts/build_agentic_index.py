@@ -21,6 +21,9 @@ DOCUMENTS = [
     ("docs/indexing/agentic-indexing.md", "indexing", "Agentic indexing and discovery guide"),
     ("docs/deploy/vercel.md", "deploy", "Vercel deployment instructions"),
     ("docs/deploy/deployment-status.md", "deploy-status", "Latest deployment status and URL instructions"),
+    ("docs/services/how-now-ghost.md", "agentic-services", "How.now hosting and Ghost database integration plan"),
+    ("scripts/providers/deploy_how_now.sh", "deploy-script", "How.now deployment wrapper"),
+    ("scripts/providers/ghost_schema.sql", "database-schema", "Ghost Postgres MVP schema"),
     ("spec/openidentity-v0.1.md", "spec", "OpenIdentity draft specification"),
     ("schema/openidentity.schema.json", "schema", "OpenIdentity JSON Schema"),
     ("examples/minimal.openidentity.md", "example", "Minimal manifest example"),
@@ -78,6 +81,7 @@ def build() -> dict:
         "text_directions": ["ltr", "rtl"],
         "themes": ["light", "dark"],
         "protocols": PROTOCOLS,
+        "services": {"hosting": "How.now", "database": "Ghost Postgres", "fallback_hosting": "Vercel"},
         "safety": {
             "memory": "references-only",
             "growth": "consent-first",

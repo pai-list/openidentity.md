@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-16T21:09:11.266360+00:00",
+  "generated_at": "2026-07-16T21:27:22.323243+00:00",
   "project": "OpenIdentity",
   "product": "AxiomID",
   "canonical_manifest": "openidentity.md",
@@ -28,6 +28,11 @@
     "LLMs.txt",
     "agentic.txt"
   ],
+  "services": {
+    "hosting": "How.now",
+    "database": "Ghost Postgres",
+    "fallback_hosting": "Vercel"
+  },
   "safety": {
     "memory": "references-only",
     "growth": "consent-first",
@@ -45,8 +50,8 @@
       "kind": "overview",
       "title": "OpenIdentity | الهوية المفتوحة",
       "description": "Human-facing project overview and quick start",
-      "bytes": 15087,
-      "lines": 289,
+      "bytes": 16202,
+      "lines": 302,
       "missing": false
     },
     {
@@ -54,8 +59,8 @@
       "kind": "agent-discovery",
       "title": "agentic.md — AxiomID / OpenIdentity Discovery Index",
       "description": "Rich agent-facing discovery index",
-      "bytes": 3175,
-      "lines": 67,
+      "bytes": 3433,
+      "lines": 72,
       "missing": false
     },
     {
@@ -110,6 +115,33 @@
       "description": "Latest deployment status and URL instructions",
       "bytes": 820,
       "lines": 35,
+      "missing": false
+    },
+    {
+      "path": "docs/services/how-now-ghost.md",
+      "kind": "agentic-services",
+      "title": "How.now Hosting + Ghost Database Plan | خطة How.now و Ghost",
+      "description": "How.now hosting and Ghost database integration plan",
+      "bytes": 4573,
+      "lines": 122,
+      "missing": false
+    },
+    {
+      "path": "scripts/providers/deploy_how_now.sh",
+      "kind": "deploy-script",
+      "title": "!/usr/bin/env bash",
+      "description": "How.now deployment wrapper",
+      "bytes": 636,
+      "lines": 21,
+      "missing": false
+    },
+    {
+      "path": "scripts/providers/ghost_schema.sql",
+      "kind": "database-schema",
+      "title": "Untitled",
+      "description": "Ghost Postgres MVP schema",
+      "bytes": 1590,
+      "lines": 41,
       "missing": false
     },
     {

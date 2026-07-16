@@ -50,12 +50,17 @@ openidentity.md/
     ar.json
   scripts/
     build_agentic_index.py
+    providers/
+      deploy_how_now.sh
+      ghost_schema.sql
   .github/
     repository-settings.md
     workflows/validate.yml
   docs/deploy/
     vercel.md
     deployment-status.md
+  docs/services/
+    how-now-ghost.md
   dist/
     agentic-index.json
   spec/
@@ -86,6 +91,7 @@ openidentity.md/
 | `scripts/build_agentic_index.py` | Builds `dist/agentic-index.json` for discovery | ينشئ فهرس الاكتشاف `dist/agentic-index.json` |
 | `.github/repository-settings.md` | GitHub description, topics, About, and branch-protection checklist | إعداد وصف GitHub والوسوم والحماية |
 | `docs/deploy/vercel.md` | Vercel deployment instructions and expected URL pattern | تعليمات النشر على Vercel ونمط الرابط المتوقع |
+| `docs/services/how-now-ghost.md` | How.now hosting and Ghost database integration plan | خطة تكامل How.now للاستضافة وGhost لقاعدة البيانات |
 | `spec/openidentity-v0.1.md` | Human-readable v0.1 specification | مواصفة v0.1 قابلة للقراءة |
 | `schema/openidentity.schema.json` | JSON Schema for validation | مخطط JSON للتحقق |
 | `examples/` | Minimal, standard, and full manifests | أمثلة مختصرة وقياسية وكاملة |
@@ -193,6 +199,13 @@ The MVP should focus on consent-first profile creation, bilingual rendering, lig
 
 يركز المنتج الأولي على إنشاء الملفات بالموافقة، العرض بالعربية والإنجليزية، الوضع الفاتح والداكن، التحقق من الملفات، البحث، حالات التحقق، شارات البروتوكولات، ومسارات طلب الوصول. تم توثيق رحلة إثبات المفهوم وحالات الاستخدام المؤسسية ونموذج النمو الأخلاقي في [`docs/mvp-poc-use-cases.md`](docs/mvp-poc-use-cases.md).
 
+
+
+### Agentic Services: How.now + Ghost
+
+AxiomID can use How.now as the requested agentic hosting target for the bilingual frontend and public discovery files, while Ghost can provide an agent-native Postgres layer for profiles, verification states, access requests, discovery events, and audit metadata. The service architecture, schema, environment variables, and deploy flow are documented in [`docs/services/how-now-ghost.md`](docs/services/how-now-ghost.md).
+
+يمكن لـ AxiomID استخدام How.now كهدف استضافة وكيلي للواجهة ثنائية اللغة وملفات الاكتشاف العامة، واستخدام Ghost كطبقة Postgres موجهة للوكلاء لتخزين الملفات وحالات التحقق وطلبات الوصول وأحداث الاكتشاف وبيانات التدقيق.
 
 ### Deployment and GitHub Setup
 
