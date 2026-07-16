@@ -73,11 +73,15 @@ Model Context Protocol (MCP) tools describe callable capabilities made available
 
 OpenIdentity SHOULD NOT duplicate the full MCP tool schema when a canonical MCP endpoint or manifest exists. Instead, it SHOULD link to the authoritative MCP source and describe the agent's intended relationship to those tools.
 
+OpenIdentity does not redefine MCP tools. It discovers and links to authoritative MCP servers and tool catalogs from one portable manifest, optionally adding identity, trust, and authorization context around those links.
+
 ### A2A agent cards
 
 Agent-to-agent (A2A) agent cards describe how agents present capabilities and communication details to other agents. OpenIdentity can link to A2A agent cards or include summary metadata that helps another agent decide whether to initiate a conversation, delegate a task, or request verification.
 
 Where an A2A card is the runtime-facing discovery document, OpenIdentity can act as the broader identity and trust manifest around it.
+
+OpenIdentity does not redefine A2A agent cards. It discovers and links to authoritative A2A agent cards from one portable manifest, optionally adding identity, trust, and verification context around those links.
 
 ### WorkOS-style auth metadata
 
@@ -155,6 +159,24 @@ tools:
   - type: mcp
     name: example-tools
     url: https://mcp.example.com
+mcp:
+  - name: example-tools
+    endpoint_url: https://mcp.example.com
+    transport: streamable-http
+    auth_scopes:
+      - tools:read
+      - tools:invoke
+    tool_categories:
+      - research
+      - workflow
+    description: MCP server exposing Example Assistant's approved research and workflow tools.
+a2a:
+  agent_card_url: https://example.com/.well-known/agent-card.json
+  interaction_modes:
+    - task-delegation
+    - conversational
+  capabilities_summary: Handles research briefs, source collection, and workflow automation requests.
+  verification_status: signed-card
 memory:
   - provider: example-memory
     type: vector
