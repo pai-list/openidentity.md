@@ -39,6 +39,8 @@ OpenIdentity is designed to work well inside [AxiomID](https://github.com/Moeabd
 openidentity.md/
   README.md
   ROADMAP.md
+  agentic.md
+  agentic.txt
   spec/
     openidentity-v0.1.md
   schema/
@@ -48,6 +50,8 @@ openidentity.md/
     minimal.openidentity.md
     full.openidentity.md
   docs/
+    landing-page.md
+    mvp-poc-use-cases.md
     security.md
     memory-discovery.md
     verification.md
@@ -57,9 +61,12 @@ openidentity.md/
 |---|---|---|
 | `README.md` | Project positioning and quick start | التعريف بالمشروع والبدء السريع |
 | `ROADMAP.md` | Product and standards roadmap | خارطة طريق المنتج والمعيار |
+| `agentic.md` / `agentic.txt` | Agent-facing discovery indexes | فهارس اكتشاف موجهة للوكلاء |
 | `spec/openidentity-v0.1.md` | Human-readable v0.1 specification | مواصفة v0.1 قابلة للقراءة |
 | `schema/openidentity.schema.json` | JSON Schema for validation | مخطط JSON للتحقق |
 | `examples/` | Minimal, standard, and full manifests | أمثلة مختصرة وقياسية وكاملة |
+| `docs/landing-page.md` | AxiomID landing page content and design blueprint | محتوى وتصميم صفحة هبوط AxiomID |
+| `docs/mvp-poc-use-cases.md` | MVP, proof-of-concept, use cases, and consent-first growth | المنتج الأولي وإثبات المفهوم وحالات الاستخدام والنمو بالموافقة |
 | `docs/security.md` | Security model and threat notes | نموذج الأمان والتهديدات |
 | `docs/memory-discovery.md` | Approved memory discovery patterns | أنماط اكتشاف الذاكرة المعتمدة |
 | `docs/verification.md` | Human and controller verification | التحقق من الإنسان والمتحكم |
@@ -132,6 +139,38 @@ flowchart LR
     Platform[AxiomID / Compatible Platform] --> Manifest
     Platform --> Trust[Discovery & Trust Decision]
 ```
+
+---
+
+
+## AxiomID MVP Landing Page | صفحة هبوط AxiomID للمنتج الأولي
+
+AxiomID should present OpenIdentity as an enterprise-grade identity and trust surface for the agentic era: polished like Apple, searchable like Google, developer-native like Vercel, and visually energetic like modern agentic AI products. The recommended page architecture is documented in [`docs/landing-page.md`](docs/landing-page.md).
+
+تقدم AxiomID مشروع OpenIdentity كواجهة هوية وثقة مؤسسية لعصر الوكلاء: واضحة مثل Apple، قابلة للبحث مثل Google، صديقة للمطورين مثل Vercel، وبطاقة بصرية تناسب منتجات الذكاء الاصطناعي الوكيلية الحديثة. تم توثيق بنية الصفحة المقترحة في [`docs/landing-page.md`](docs/landing-page.md).
+
+### Agentic Protocol Marketing Strip
+
+Use recognizable protocol badges and logo slots as a trust-building marketing pattern:
+
+| Protocol / Pattern | Marketing role | دورها التسويقي |
+|---|---|---|
+| 🧩 MCP | Tool and server interoperability | قابلية تشغيل الأدوات والخوادم |
+| 🤝 A2A | Agent-to-agent handoffs | انتقالات آمنة بين الوكلاء |
+| 🪪 DID + Verifiable Credentials | Portable identifiers and signed claims | معرفات محمولة وادعاءات موقعة |
+| 🔐 OAuth 2.0 + OpenID Connect | Delegated authorization and login trust | تفويض وتسجيل دخول موثوق |
+| 💳 Wallet / SIWE / CAIP | Wallet ownership and account references | ملكية المحافظ ومراجع الحسابات |
+| 📄 LLMs.txt + agentic.txt | Indexing and AI crawler discovery | الفهرسة واكتشاف وكلاء الذكاء الاصطناعي |
+
+### MVP, POC, and Use Cases
+
+The MVP should focus on consent-first profile creation, bilingual rendering, light/dark mode, manifest validation, search, verification states, protocol badges, and access-request flows. The full proof-of-concept journey, enterprise use cases, and ethical growth model are documented in [`docs/mvp-poc-use-cases.md`](docs/mvp-poc-use-cases.md).
+
+يركز المنتج الأولي على إنشاء الملفات بالموافقة، العرض بالعربية والإنجليزية، الوضع الفاتح والداكن، التحقق من الملفات، البحث، حالات التحقق، شارات البروتوكولات، ومسارات طلب الوصول. تم توثيق رحلة إثبات المفهوم وحالات الاستخدام المؤسسية ونموذج النمو الأخلاقي في [`docs/mvp-poc-use-cases.md`](docs/mvp-poc-use-cases.md).
+
+### Agent Discovery Indexes
+
+This repository now includes [`agentic.md`](agentic.md) and [`agentic.txt`](agentic.txt) so AI agents, crawlers, and enterprise platforms can quickly discover the project purpose, important documents, supported protocols, preferred behavior, and safety constraints.
 
 ---
 
