@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en" dir="ltr" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AxiomID — Identity for the Agentic Era</title>
+    <meta name="description" content="A bilingual, light/dark frontend prototype for AxiomID and OpenIdentity discovery." />
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="app.js"></script>
+  </head>
+  <body>
+    <header class="site-header" aria-label="Primary navigation">
+      <a class="brand" href="#hero" aria-label="AxiomID home">
+        <span class="brand-mark">A</span>
+        <span><strong>AxiomID</strong><small>OpenIdentity</small></span>
+      </a>
+      <nav class="nav-links" aria-label="Page sections">
+        <a data-i18n="nav_product" href="#product">Product</a>
+        <a data-i18n="nav_protocols" href="#protocols">Protocols</a>
+        <a data-i18n="nav_use_cases" href="#use-cases">Use cases</a>
+        <a data-i18n="nav_services" href="#services">Services</a>
+        <a data-i18n="nav_docs" href="#docs">Docs</a>
+      </nav>
+      <div class="header-actions">
+        <button class="pill-button" id="languageToggle" type="button" aria-label="Switch language">العربية</button>
+        <button class="icon-button" id="themeToggle" type="button" aria-label="Toggle color theme">◐</button>
+      </div>
+    </header>
+
+    <main>
+      <section id="hero" class="hero section-grid">
+        <div class="hero-copy">
+          <p class="eyebrow" data-i18n="hero_eyebrow">Built for agents, trusted by humans</p>
+          <h1 data-i18n="hero_title">Identity for the agentic era.</h1>
+          <p class="lede" data-i18n="hero_lede">AxiomID turns every AI agent, controller, tool, memory index, wallet, and policy endpoint into a discoverable OpenIdentity profile.</p>
+          <div class="cta-row">
+            <a class="primary-cta" href="../examples/minimal.openidentity.md" data-i18n="cta_create">Create an OpenIdentity</a>
+            <a class="secondary-cta" href="../spec/openidentity-v0.1.md" data-i18n="cta_spec">Read the spec</a>
+          </div>
+          <div class="trust-row" aria-label="Trust indicators">
+            <span>✓ <span data-i18n="trust_bilingual">English + Arabic</span></span>
+            <span>✓ <span data-i18n="trust_dark">Light/Dark</span></span>
+            <span>✓ <span data-i18n="trust_schema">Schema validated</span></span>
+          </div>
+        </div>
+        <aside class="identity-card" aria-label="Example identity profile card">
+          <div class="card-header">
+            <span class="avatar">AX</span>
+            <div><strong>Axiom Assistant</strong><small>did:web:axiomid.app:agents:assistant</small></div>
+          </div>
+          <div class="status-line"><span class="status-dot"></span><span data-i18n="verified_controller">Verified human controller</span></div>
+          <dl class="profile-grid">
+            <div><dt data-i18n="role">Role</dt><dd>Research · Automation</dd></div>
+            <div><dt data-i18n="memory">Memory</dt><dd>Policy-gated index</dd></div>
+            <div><dt data-i18n="tools">Tools</dt><dd>MCP registry</dd></div>
+            <div><dt data-i18n="auth">Auth</dt><dd>OAuth · Wallet</dd></div>
+          </dl>
+          <pre><code>openidentity: "0.1"
+agent:
+  name: "Axiom Assistant"
+capabilities:
+  protocols: ["MCP", "A2A", "DID"]</code></pre>
+        </aside>
+      </section>
+
+      <section id="product" class="section shell">
+        <div class="section-heading">
+          <p class="eyebrow" data-i18n="product_eyebrow">Complete UI/UX system</p>
+          <h2 data-i18n="product_title">A frontend that explains, verifies, and converts.</h2>
+          <p data-i18n="product_body">Use these page patterns for the MVP landing site, docs portal, proof-of-concept workspace, and enterprise trust center.</p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card"><span>01</span><h3 data-i18n="feature_search_title">Discovery search</h3><p data-i18n="feature_search_body">Search agents by role, domain, protocol, wallet, organization, language, and verification state.</p></article>
+          <article class="feature-card"><span>02</span><h3 data-i18n="feature_verify_title">Verification cards</h3><p data-i18n="feature_verify_body">Show controller, domain, wallet, signature, policy, expiration, and revocation status.</p></article>
+          <article class="feature-card"><span>03</span><h3 data-i18n="feature_docs_title">Developer docs</h3><p data-i18n="feature_docs_body">Render manifests, JSON Schema, examples, copy snippets, and protocol onboarding in one flow.</p></article>
+          <article class="feature-card"><span>04</span><h3 data-i18n="feature_growth_title">Consent growth</h3><p data-i18n="feature_growth_body">Capture demand with transparent fields, export/delete promises, and no private memory harvesting.</p></article>
+        </div>
+      </section>
+
+      <section id="protocols" class="section protocol-band">
+        <div class="section-heading compact">
+          <p class="eyebrow" data-i18n="protocol_eyebrow">Marketing strip</p>
+          <h2 data-i18n="protocol_title">Protocol logos become trust shortcuts.</h2>
+        </div>
+        <div class="protocol-grid" aria-label="Supported protocols">
+          <div class="protocol"><span>🧩</span><strong>MCP</strong><small>Tools</small></div>
+          <div class="protocol"><span>🤝</span><strong>A2A</strong><small>Handoffs</small></div>
+          <div class="protocol"><span>🪪</span><strong>DID</strong><small>Identifiers</small></div>
+          <div class="protocol"><span>✅</span><strong>VC</strong><small>Claims</small></div>
+          <div class="protocol"><span>🔐</span><strong>OAuth/OIDC</strong><small>Auth</small></div>
+          <div class="protocol"><span>💳</span><strong>Wallet</strong><small>SIWE · CAIP</small></div>
+          <div class="protocol"><span>📄</span><strong>agentic.txt</strong><small>Discovery</small></div>
+        </div>
+      </section>
+
+      <section id="use-cases" class="section shell two-column">
+        <div>
+          <p class="eyebrow" data-i18n="use_eyebrow">Enterprise MVP</p>
+          <h2 data-i18n="use_title">Proof-of-concept pages that matter.</h2>
+          <p data-i18n="use_body">Start with the flows that prove trust: create profile, validate manifest, verify controller, publish discovery files, search, request access, and measure demand.</p>
+        </div>
+        <ul class="timeline">
+          <li><strong data-i18n="flow_create">Create profile</strong><span>openidentity.md + AxiomID URL</span></li>
+          <li><strong data-i18n="flow_verify">Verify controller</strong><span>DID · domain · wallet · signature</span></li>
+          <li><strong data-i18n="flow_publish">Publish indexes</strong><span>agentic.md · agentic.txt · llms.txt</span></li>
+          <li><strong data-i18n="flow_request">Request access</strong><span>MCP · memory · pilot workspace</span></li>
+        </ul>
+      </section>
+
+
+      <section id="services" class="section shell service-stack">
+        <div class="section-heading compact">
+          <p class="eyebrow" data-i18n="services_eyebrow">Agentic services</p>
+          <h2 data-i18n="services_title">How.now for hosting. Ghost for database.</h2>
+          <p data-i18n="services_body">Deploy the bilingual frontend and discovery files to How.now, then store profiles, access requests, verification states, and discovery events in Ghost Postgres.</p>
+        </div>
+        <div class="feature-grid two-cards">
+          <article class="feature-card"><span>HN</span><h3>How.now</h3><p data-i18n="services_hosting">Agentic hosting target for the static frontend, docs entry points, and discovery files.</p></article>
+          <article class="feature-card"><span>GH</span><h3>Ghost</h3><p data-i18n="services_database">Agent-native Postgres database layer for indexes, profiles, requests, and audit events.</p></article>
+        </div>
+      </section>
+
+      <section id="docs" class="section docs-panel">
+        <div class="section-heading compact">
+          <p class="eyebrow" data-i18n="docs_eyebrow">Indexable by default</p>
+          <h2 data-i18n="docs_title">Every important page has a discovery path.</h2>
+        </div>
+        <div class="doc-links">
+          <a href="../README.md">README</a>
+          <a href="../docs/landing-page.md">Landing blueprint</a>
+          <a href="../docs/mvp-poc-use-cases.md">MVP / POC</a>
+          <a href="../docs/indexing/agentic-indexing.md">Indexing</a>
+          <a href="../agentic.md">agentic.md</a>
+          <a href="../agentic.txt">agentic.txt</a>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

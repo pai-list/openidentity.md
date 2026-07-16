@@ -1,0 +1,34 @@
+name: AxiomID / OpenIdentity use case
+description: Propose an agent identity, discovery, verification, or interoperability use case.
+title: "Use case: "
+labels: ["use-case", "feedback"]
+body:
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - Enterprise agent registry
+        - MCP tool discovery
+        - A2A handoff
+        - Human/controller verification
+        - Wallet/domain trust
+        - Memory discovery
+        - Arabic/English market
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What identity or discovery problem should AxiomID/OpenIdentity solve?
+    validations:
+      required: true
+  - type: textarea
+    id: desired
+    attributes:
+      label: Desired behavior
+      description: What should the manifest, frontend, or index expose?
+    validations:
+      required: true

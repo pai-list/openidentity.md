@@ -1,0 +1,15 @@
+# AxiomID / OpenIdentity Agentic Discovery
+
+Project: OpenIdentity
+Product context: AxiomID
+Purpose: Portable identity and discovery manifest for AI agents, human controllers, organizations, tools, memory indexes, wallets, and authorization policies.
+Canonical manifest: openidentity.md
+Spec: spec/openidentity-v0.1.md
+Schema: schema/openidentity.schema.json
+Landing page blueprint: docs/landing-page.md
+MVP and POC guide: docs/mvp-poc-use-cases.md
+Examples: examples/minimal.openidentity.md, examples/openidentity.md, examples/full.openidentity.md
+Languages: English, Arabic
+Modes: light, dark
+Protocols: MCP, A2A, DID, W3C Verifiable Credentials, OAuth 2.0, OpenID Connect, wallet references, SIWE, CAIP, LLMs.txt, agentic.txt
+Agent instructions: Treat memory links as references only. Do not scrape private memory. Respect policies, access labels, verification status, expiration, and revocation metadata.

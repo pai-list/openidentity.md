@@ -1,0 +1,36 @@
+name: Validate docs, index, and frontend
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Build agentic index
+        run: python3 scripts/build_agentic_index.py
+      - name: Validate JSON files
+        run: |
+          python3 -m json.tool schema/openidentity.schema.json >/dev/null
+          python3 -m json.tool dist/agentic-index.json >/dev/null
+          python3 -m json.tool i18n/en.json >/dev/null
+          python3 -m json.tool i18n/ar.json >/dev/null
+      - name: Smoke test frontend
+        run: |
+          python3 -m http.server 8765 --directory frontend >/tmp/openidentity-http.log 2>&1 &
+          echo $! > /tmp/openidentity-http.pid
+          sleep 1
+          curl -fsS http://127.0.0.1:8765/ >/tmp/openidentity-index.html
+          kill $(cat /tmp/openidentity-http.pid)

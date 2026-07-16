@@ -1,0 +1,193 @@
+{
+  "generated_at": "2026-07-16T21:27:22.323243+00:00",
+  "project": "OpenIdentity",
+  "product": "AxiomID",
+  "canonical_manifest": "openidentity.md",
+  "languages": [
+    "en",
+    "ar"
+  ],
+  "text_directions": [
+    "ltr",
+    "rtl"
+  ],
+  "themes": [
+    "light",
+    "dark"
+  ],
+  "protocols": [
+    "MCP",
+    "A2A",
+    "DID",
+    "W3C Verifiable Credentials",
+    "OAuth 2.0",
+    "OpenID Connect",
+    "Wallet references",
+    "SIWE",
+    "CAIP",
+    "LLMs.txt",
+    "agentic.txt"
+  ],
+  "services": {
+    "hosting": "How.now",
+    "database": "Ghost Postgres",
+    "fallback_hosting": "Vercel"
+  },
+  "safety": {
+    "memory": "references-only",
+    "growth": "consent-first",
+    "do_not_index": [
+      "private memories",
+      "raw chat logs",
+      "secret tokens",
+      "private keys",
+      "identity documents"
+    ]
+  },
+  "documents": [
+    {
+      "path": "README.md",
+      "kind": "overview",
+      "title": "OpenIdentity | الهوية المفتوحة",
+      "description": "Human-facing project overview and quick start",
+      "bytes": 16202,
+      "lines": 302,
+      "missing": false
+    },
+    {
+      "path": "agentic.md",
+      "kind": "agent-discovery",
+      "title": "agentic.md — AxiomID / OpenIdentity Discovery Index",
+      "description": "Rich agent-facing discovery index",
+      "bytes": 3433,
+      "lines": 72,
+      "missing": false
+    },
+    {
+      "path": "agentic.txt",
+      "kind": "agent-discovery-text",
+      "title": "AxiomID / OpenIdentity Agentic Discovery",
+      "description": "Compact crawler and agent discovery summary",
+      "bytes": 908,
+      "lines": 16,
+      "missing": false
+    },
+    {
+      "path": "docs/landing-page.md",
+      "kind": "landing",
+      "title": "AxiomID Landing Page Blueprint | مخطط صفحة الهبوط",
+      "description": "AxiomID landing page content and UI direction",
+      "bytes": 7467,
+      "lines": 132,
+      "missing": false
+    },
+    {
+      "path": "docs/mvp-poc-use-cases.md",
+      "kind": "mvp-poc",
+      "title": "MVP, Proof of Concept, and Use Cases | المنتج الأولي وإثبات المفهوم",
+      "description": "MVP, proof-of-concept, and use-case guide",
+      "bytes": 4508,
+      "lines": 84,
+      "missing": false
+    },
+    {
+      "path": "docs/indexing/agentic-indexing.md",
+      "kind": "indexing",
+      "title": "Agentic Indexing and Discovery | الفهرسة والاكتشاف للوكلاء",
+      "description": "Agentic indexing and discovery guide",
+      "bytes": 2774,
+      "lines": 57,
+      "missing": false
+    },
+    {
+      "path": "docs/deploy/vercel.md",
+      "kind": "deploy",
+      "title": "Vercel Deployment | النشر على Vercel",
+      "description": "Vercel deployment instructions",
+      "bytes": 1316,
+      "lines": 51,
+      "missing": false
+    },
+    {
+      "path": "docs/deploy/deployment-status.md",
+      "kind": "deploy-status",
+      "title": "Deployment Status",
+      "description": "Latest deployment status and URL instructions",
+      "bytes": 820,
+      "lines": 35,
+      "missing": false
+    },
+    {
+      "path": "docs/services/how-now-ghost.md",
+      "kind": "agentic-services",
+      "title": "How.now Hosting + Ghost Database Plan | خطة How.now و Ghost",
+      "description": "How.now hosting and Ghost database integration plan",
+      "bytes": 4573,
+      "lines": 122,
+      "missing": false
+    },
+    {
+      "path": "scripts/providers/deploy_how_now.sh",
+      "kind": "deploy-script",
+      "title": "!/usr/bin/env bash",
+      "description": "How.now deployment wrapper",
+      "bytes": 636,
+      "lines": 21,
+      "missing": false
+    },
+    {
+      "path": "scripts/providers/ghost_schema.sql",
+      "kind": "database-schema",
+      "title": "Untitled",
+      "description": "Ghost Postgres MVP schema",
+      "bytes": 1590,
+      "lines": 41,
+      "missing": false
+    },
+    {
+      "path": "spec/openidentity-v0.1.md",
+      "kind": "spec",
+      "title": "OpenIdentity v0.1 Specification",
+      "description": "OpenIdentity draft specification",
+      "bytes": 2654,
+      "lines": 54,
+      "missing": false
+    },
+    {
+      "path": "schema/openidentity.schema.json",
+      "kind": "schema",
+      "title": "Untitled",
+      "description": "OpenIdentity JSON Schema",
+      "bytes": 2567,
+      "lines": 93,
+      "missing": false
+    },
+    {
+      "path": "examples/minimal.openidentity.md",
+      "kind": "example",
+      "title": "Minimal OpenIdentity Manifest",
+      "description": "Minimal manifest example",
+      "bytes": 338,
+      "lines": 19,
+      "missing": false
+    },
+    {
+      "path": "examples/openidentity.md",
+      "kind": "example",
+      "title": "Example Agent OpenIdentity Profile",
+      "description": "Standard manifest example",
+      "bytes": 4899,
+      "lines": 102,
+      "missing": false
+    },
+    {
+      "path": "examples/full.openidentity.md",
+      "kind": "example",
+      "title": "Full OpenIdentity Manifest Example",
+      "description": "Full manifest example",
+      "bytes": 2425,
+      "lines": 80,
+      "missing": false
+    }
+  ]
+}

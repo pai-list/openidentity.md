@@ -4,6 +4,10 @@ OpenIdentity is evolving from a practical manifest format into a portable discov
 
 ## v0.1 — Draft Manifest Foundation
 
+- Add AxiomID landing page, MVP, proof-of-concept, use-case, and agentic discovery documentation.
+- Support bilingual English/Arabic positioning and light/dark mode product guidance.
+- Provide a static frontend prototype and script-generated machine-readable discovery index.
+
 - Define the first human-readable Markdown manifest shape.
 - Provide JSON Schema validation for core structured fields.
 - Document identity, controller, verification, capabilities, discovery, wallet, and authorization sections.
@@ -17,6 +21,7 @@ OpenIdentity is evolving from a practical manifest format into a portable discov
 - Define signed manifest recommendations.
 - Add domain and wallet verification recipes.
 - Add machine-readable extraction conventions for Markdown manifests.
+- Formalize `agentic.md`, `agentic.txt`, generated JSON indexes, and optional `llms.txt` discovery conventions.
 
 ## v0.3 — Trust and Policy Layer
 
