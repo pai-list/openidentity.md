@@ -32,6 +32,15 @@ wallet:
   did: did:key:example
 auth:
   authorization_url: https://example.com/oauth
+  scopes:
+    - read:public-profile
+    - request:tool-access
+authorization:
+  policy: https://example.com/policies/agent-access.json
+  revocation: https://example.com/policies/revocation-list.json
+links:
+  repository: https://github.com/Moeabdelaziz007/AxiomID
+  axiom_id: https://axiomid.app/u/example-agent
 security:
   secrets_embedded: false
   signed: true
@@ -76,3 +85,10 @@ Additional skills should be listed explicitly with stable identifiers and concis
 The `auth.authorization_url` field points to an OAuth authorization endpoint. Consumers should use this URL to initiate delegated authorization for protected tools, data sources, or memory providers.
 
 The wallet DID, `did:key:example`, provides an example decentralized identifier for agent identity and signing. Because `security.signed` is set to `true`, this profile represents an identity document that is expected to be signed or accompanied by a verifiable signature in a production deployment.
+
+
+## AxiomID and Portable Discovery
+
+This example can be used as a portable discovery descriptor for AxiomID or any compatible AI-agent platform. Like a USB descriptor for an AI agent, it tells a platform what the agent is, who controls it, which roles and skills it claims, where approved memory links live, and which authorization path should be used before accessing protected tools or data.
+
+The `links.axiom_id` field is an example pointer to an AxiomID profile. Production profiles should replace the placeholder URL with the real verified controller or agent page on `https://axiomid.app/`.

@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://openidentity.dev/schema/openidentity.schema.json",
+  "title": "OpenIdentity Manifest",
+  "description": "Portable identity manifest for AI agents.",
+  "type": "object",
+  "required": ["openidentity", "agent", "controller", "capabilities"],
+  "properties": {
+    "openidentity": {
+      "type": "string",
+      "description": "OpenIdentity manifest version.",
+      "pattern": "^0\\.1$"
+    },
+    "agent": {
+      "type": "object",
+      "required": ["id", "name", "type"],
+      "properties": {
+        "id": { "type": "string", "minLength": 3 },
+        "name": { "type": "string", "minLength": 1 },
+        "type": { "type": "string", "default": "ai-agent" },
+        "version": { "type": "string" },
+        "description": { "type": "string" }
+      },
+      "additionalProperties": true
+    },
+    "controller": {
+      "type": "object",
+      "description": "Human, organization, or system that controls the agent.",
+      "additionalProperties": true
+    },
+    "verification": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "capabilities": {
+      "type": "object",
+      "required": ["roles", "skills"],
+      "properties": {
+        "roles": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "skills": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      },
+      "additionalProperties": true
+    },
+    "mcp_tools": {
+      "type": "array",
+      "items": { "type": "object", "additionalProperties": true }
+    },
+    "a2a": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "discovery": {
+      "type": "object",
+      "properties": {
+        "memory": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["label", "uri", "access"],
+            "properties": {
+              "label": { "type": "string" },
+              "uri": { "type": "string" },
+              "access": { "type": "string" },
+              "policy": { "type": "string" }
+            },
+            "additionalProperties": true
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "wallets": {
+      "type": "array",
+      "items": { "type": "object", "additionalProperties": true }
+    },
+    "authorization": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "links": {
+      "type": "object",
+      "additionalProperties": { "type": "string" }
+    }
+  },
+  "additionalProperties": true
+}

@@ -210,3 +210,39 @@ For v0.1:
 - Human-readable Markdown SHOULD remain a first-class part of the format.
 
 Future versions may define a stricter schema, recommended field registry, validation profile, signing profile, or compatibility rules.
+
+## 7. OpenIdentity positioning for AxiomID
+
+OpenIdentity is also intended to support AxiomID and compatible AI-agent platforms as a portable discovery descriptor.
+
+Suggested project message:
+
+> OpenIdentity is a portable identity manifest for AI agents. It combines identity, human verification, roles, skills, MCP tools, A2A metadata, memory discovery links, wallet references, and authorization pointers into one secure, shareable file.
+
+Short version:
+
+> OpenIdentity is the discovery layer for AI agent identity.
+
+USB metaphor:
+
+> Like a USB descriptor for an AI agent, OpenIdentity lets any compatible platform understand what the agent is, who controls it, what it can do, and where its approved memory and tools live.
+
+### AxiomID compatibility notes
+
+An AxiomID-compatible OpenIdentity manifest SHOULD make the following references explicit when available:
+
+- Human or organization controller verification.
+- Roles and skills approved for the agent.
+- MCP tool references and allowed scopes.
+- A2A agent-card or communication metadata.
+- Approved memory discovery links.
+- Wallet references, without private keys or seed phrases.
+- Authorization URLs, scopes, policies, revocation, or consent pointers.
+
+## 8. Arabic summary | ملخص عربي
+
+OpenIdentity هو ملف هوية محمول لوكلاء الذكاء الاصطناعي. يجمع الهوية، التحقق البشري، الأدوار، المهارات، أدوات MCP، بيانات A2A، روابط اكتشاف الذاكرة، مراجع المحافظ، ومؤشرات التفويض في ملف واحد آمن وقابل للمشاركة.
+
+النسخة المختصرة: OpenIdentity هي طبقة الاكتشاف لهوية وكلاء الذكاء الاصطناعي.
+
+مثل واصف USB لوكيل ذكاء اصطناعي، يتيح OpenIdentity لأي منصة متوافقة فهم ماهية الوكيل، ومن يتحكم به، وما يمكنه فعله، وأين توجد ذاكرته وأدواته المعتمدة.

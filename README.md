@@ -1,1 +1,217 @@
-openidentity.md
+<div align="center">
+
+# OpenIdentity | الهوية المفتوحة
+
+### The Discovery Layer for AI Agent Identity  
+### طبقة الاكتشاف لهوية وكلاء الذكاء الاصطناعي
+
+[![Manifest](https://img.shields.io/badge/manifest-openidentity.md-0A66C2?style=for-the-badge)](#openidentity-manifest)
+[![Version](https://img.shields.io/badge/spec-v0.1-6f42c1?style=for-the-badge)](spec/openidentity-v0.1.md)
+[![Schema](https://img.shields.io/badge/schema-JSON-00A36C?style=for-the-badge)](schema/openidentity.schema.json)
+[![AxiomID](https://img.shields.io/badge/AxiomID-ready-f59e0b?style=for-the-badge)](https://axiomid.app/)
+[![Languages](https://img.shields.io/badge/English%20%7C%20%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A%D8%A9-bilingual-111827?style=for-the-badge)](#arabic--العربية)
+
+**OpenIdentity is a portable identity manifest for AI agents. It combines identity, human verification, roles, skills, MCP tools, A2A metadata, memory discovery links, wallet references, and authorization pointers into one secure, shareable file.**
+
+**OpenIdentity هو ملف هوية محمول لوكلاء الذكاء الاصطناعي، يجمع الهوية، التحقق البشري، الأدوار، المهارات، أدوات MCP، بيانات A2A، روابط اكتشاف الذاكرة، مراجع المحافظ، ومؤشرات التفويض في ملف واحد آمن وقابل للمشاركة.**
+
+</div>
+
+---
+
+## Positioning | الرسالة
+
+> **Short version:** OpenIdentity is the discovery layer for AI agent identity.
+
+> **USB metaphor:** Like a USB descriptor for an AI agent, OpenIdentity lets any compatible platform understand what the agent is, who controls it, what it can do, and where its approved memory and tools live.
+
+> **النسخة المختصرة:** OpenIdentity هي طبقة الاكتشاف لهوية وكلاء الذكاء الاصطناعي.
+
+> **تشبيه USB:** مثل واصف USB لوكيل ذكاء اصطناعي، يتيح OpenIdentity لأي منصة متوافقة فهم ماهية الوكيل، ومن يتحكم به، وما يمكنه فعله، وأين توجد ذاكرته وأدواته المعتمدة.
+
+OpenIdentity is designed to work well inside [AxiomID](https://github.com/Moeabdelaziz007/AxiomID) and the [AxiomID app](https://axiomid.app/) as a practical, portable manifest layer for agent discovery and trust.
+
+---
+
+## Repository Map | خريطة المستودع
+
+```text
+openidentity.md/
+  README.md
+  ROADMAP.md
+  spec/
+    openidentity-v0.1.md
+  schema/
+    openidentity.schema.json
+  examples/
+    openidentity.md
+    minimal.openidentity.md
+    full.openidentity.md
+  docs/
+    security.md
+    memory-discovery.md
+    verification.md
+```
+
+| Path | Purpose | الهدف |
+|---|---|---|
+| `README.md` | Project positioning and quick start | التعريف بالمشروع والبدء السريع |
+| `ROADMAP.md` | Product and standards roadmap | خارطة طريق المنتج والمعيار |
+| `spec/openidentity-v0.1.md` | Human-readable v0.1 specification | مواصفة v0.1 قابلة للقراءة |
+| `schema/openidentity.schema.json` | JSON Schema for validation | مخطط JSON للتحقق |
+| `examples/` | Minimal, standard, and full manifests | أمثلة مختصرة وقياسية وكاملة |
+| `docs/security.md` | Security model and threat notes | نموذج الأمان والتهديدات |
+| `docs/memory-discovery.md` | Approved memory discovery patterns | أنماط اكتشاف الذاكرة المعتمدة |
+| `docs/verification.md` | Human and controller verification | التحقق من الإنسان والمتحكم |
+
+---
+
+<a id="openidentity-manifest"></a>
+
+## What Goes Inside an OpenIdentity Manifest?
+
+```mermaid
+mindmap
+  root((OpenIdentity))
+    Identity
+      Agent ID
+      Name
+      Version
+      Controller
+    Verification
+      Human proof
+      Domain proof
+      Signatures
+    Capabilities
+      Roles
+      Skills
+      MCP tools
+      A2A metadata
+    Discovery
+      Memory links
+      Tool registries
+      Service endpoints
+    Trust
+      Wallet references
+      Authorization pointers
+      Policies
+```
+
+An `openidentity.md` file is intentionally portable and readable. Platforms can render it for humans, parse it for machines, validate it with JSON Schema, and use it as a trust bootstrap document.
+
+---
+
+## Quick Start | البدء السريع
+
+1. Copy `examples/minimal.openidentity.md` into your agent or platform repository.
+2. Fill in identity, controller, verification, roles, skills, tools, and memory discovery links.
+3. Validate structured fields against `schema/openidentity.schema.json`.
+4. Publish the file at a stable URL, repository path, or AxiomID profile.
+5. Use the manifest as the first discovery document when another platform needs to understand the agent.
+
+```bash
+python3 -m json.tool schema/openidentity.schema.json >/dev/null
+```
+
+---
+
+## Architecture | البنية المعمارية
+
+```mermaid
+flowchart LR
+    Agent[AI Agent] --> Manifest[openidentity.md]
+    Human[Human Controller] --> Verification[Human Verification]
+    Manifest --> Identity[Identity Metadata]
+    Manifest --> Roles[Roles & Skills]
+    Manifest --> Tools[MCP Tools]
+    Manifest --> A2A[A2A Metadata]
+    Manifest --> Memory[Approved Memory Discovery]
+    Manifest --> Wallet[Wallet References]
+    Manifest --> Auth[Authorization Pointers]
+    Verification --> Manifest
+    Platform[AxiomID / Compatible Platform] --> Manifest
+    Platform --> Trust[Discovery & Trust Decision]
+```
+
+---
+
+## English
+
+### Core Use Cases
+
+- Let platforms discover an AI agent's identity and controller.
+- Publish approved roles, skills, and MCP tool references.
+- Point to authorized memory locations without leaking private memory content.
+- Attach human verification, wallet, domain, or signature references.
+- Provide A2A metadata so agents and platforms can safely interoperate.
+- Create a portable manifest that works across GitHub, AxiomID, websites, and agent runtimes.
+
+### Design Principles
+
+| Principle | Meaning |
+|---|---|
+| Portable | A manifest should travel with the agent across platforms. |
+| Human-readable | Markdown is the canonical presentation format. |
+| Machine-parseable | Structured blocks can be validated and indexed. |
+| Secure by reference | Sensitive resources are referenced, not embedded. |
+| Consent-first | Memory, wallets, and tools should be explicitly approved. |
+| Interoperable | The format should support MCP, A2A, wallets, and authorization systems. |
+
+---
+
+<a id="arabic--العربية"></a>
+
+## العربية
+
+### حالات الاستخدام الأساسية
+
+- تمكين المنصات من اكتشاف هوية وكيل الذكاء الاصطناعي والمتحكم به.
+- نشر الأدوار والمهارات ومراجع أدوات MCP المعتمدة.
+- الإشارة إلى مواقع الذاكرة المصرح بها دون كشف محتوى الذاكرة الخاصة.
+- ربط مراجع التحقق البشري أو النطاق أو المحفظة أو التوقيعات.
+- توفير بيانات A2A لتشغيل آمن بين الوكلاء والمنصات.
+- إنشاء ملف محمول يعمل عبر GitHub وAxiomID والمواقع الإلكترونية وبيئات تشغيل الوكلاء.
+
+### مبادئ التصميم
+
+| المبدأ | المعنى |
+|---|---|
+| قابلية النقل | يجب أن ينتقل ملف الهوية مع الوكيل عبر المنصات. |
+| قابلية القراءة | Markdown هو تنسيق العرض الأساسي للبشر. |
+| قابلية الفهم آلياً | يمكن التحقق من الكتل المنظمة وفهرستها. |
+| الأمان بالإشارة | يتم استخدام مراجع للموارد الحساسة بدلاً من تضمينها. |
+| الموافقة أولاً | الذاكرة والمحافظ والأدوات يجب أن تكون معتمدة بوضوح. |
+| قابلية التشغيل البيني | يدعم التنسيق MCP وA2A والمحافظ وأنظمة التفويض. |
+
+---
+
+## Example Manifest Preview
+
+```yaml
+openidentity: "0.1"
+agent:
+  id: "did:web:example.com:agents:axiom-assistant"
+  name: "Axiom Assistant"
+  type: "ai-agent"
+controller:
+  human:
+    name: "Example Controller"
+    verification: "https://axiomid.app/u/example"
+capabilities:
+  roles: ["research", "workflow-automation"]
+  skills: ["identity-discovery", "memory-routing"]
+discovery:
+  memory:
+    - label: "approved-public-memory"
+      uri: "https://example.com/memory/index.json"
+      access: "public-read"
+```
+
+See [`examples/openidentity.md`](examples/openidentity.md), [`examples/minimal.openidentity.md`](examples/minimal.openidentity.md), and [`examples/full.openidentity.md`](examples/full.openidentity.md) for complete examples.
+
+---
+
+## Status
+
+OpenIdentity v0.1 is an early draft intended for experimentation, feedback, AxiomID integration, and interoperability discussion.
+
