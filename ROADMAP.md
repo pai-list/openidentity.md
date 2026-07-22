@@ -22,6 +22,7 @@ OpenIdentity is evolving from a practical manifest format into a portable discov
 - Add domain and wallet verification recipes.
 - Add machine-readable extraction conventions for Markdown manifests.
 - Formalize `agentic.md`, `agentic.txt`, generated JSON indexes, and optional `llms.txt` discovery conventions.
+- **Add `did:axiom` DID method specification** — native W3C-compliant DID method for OpenIdentity agents, anchored to Pi Network with Ed25519 keys. See [`spec/did-axiom-method-v0.1.md`](spec/did-axiom-method-v0.1.md).
 
 ## v0.3 — Trust and Policy Layer
 

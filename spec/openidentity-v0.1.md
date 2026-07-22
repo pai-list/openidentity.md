@@ -138,6 +138,21 @@ Future versions may define a stricter schema, recommended field registry, valida
 
 OpenIdentity is also intended to support AxiomID and compatible AI-agent platforms as a portable discovery descriptor.
 
+### Native DID Method: `did:axiom`
+
+OpenIdentity agents can use the [`did:axiom`](./did-axiom-method-v0.1.md) DID method, which provides W3C-compliant DIDs anchored to Pi Network with Ed25519 keys. See the full [did:axiom DID Method Specification](./did-axiom-method-v0.1.md) for CRUD operations, DID document structure, resolver reference, and security model.
+
+Example:
+
+```yaml
+agent:
+  id: "did:axiom:agent:agt_33d7p"
+  name: "Axiom Assistant"
+  type: "ai-agent"
+```
+
+The `did:axiom` resolver is available at `https://axiomid.app/api/did-document?did={did}`.
+
 Suggested project message:
 
 > OpenIdentity is a portable identity manifest for AI agents. It combines identity, human verification, roles, skills, MCP tools, A2A metadata, memory discovery links, wallet references, and authorization pointers into one secure, shareable file.

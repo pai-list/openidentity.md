@@ -74,6 +74,7 @@ openidentity.md/
     agentic-index.json
   spec/
     openidentity-v0.1.md
+    did-axiom-method-v0.1.md
   schema/
     openidentity.schema.json
   examples/
@@ -102,6 +103,7 @@ openidentity.md/
 | `docs/deploy/vercel.md` | Vercel deployment instructions and expected URL pattern | تعليمات النشر على Vercel ونمط الرابط المتوقع |
 | `docs/services/how-now-ghost.md` | How.now hosting and Ghost database integration plan | خطة تكامل How.now للاستضافة وGhost لقاعدة البيانات |
 | `spec/openidentity-v0.1.md` | Human-readable v0.1 specification | مواصفة v0.1 قابلة للقراءة |
+| `spec/did-axiom-method-v0.1.md` | Native did:axiom DID method specification (W3C-compliant, Pi Network anchored) | مواصفة طريقة did:axiom (W3C، Pi Network) |
 | `schema/openidentity.schema.json` | JSON Schema for validation | مخطط JSON للتحقق |
 | `examples/` | Minimal, standard, and full manifests | أمثلة مختصرة وقياسية وكاملة |
 | `docs/landing-page.md` | AxiomID landing page content and design blueprint | محتوى وتصميم صفحة هبوط AxiomID |
