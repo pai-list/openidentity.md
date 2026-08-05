@@ -51,6 +51,7 @@
           <div class="status-line"><span class="status-dot"></span><span data-i18n="verified_controller">Verified human controller</span></div>
           <dl class="profile-grid">
             <div><dt data-i18n="role">Role</dt><dd>Research · Automation</dd></div>
+            <div><dt data-i18n="passport">Passport</dt><dd>Agent QR · DID</dd></div>
             <div><dt data-i18n="memory">Memory</dt><dd>Policy-gated index</dd></div>
             <div><dt data-i18n="tools">Tools</dt><dd>MCP registry</dd></div>
             <div><dt data-i18n="auth">Auth</dt><dd>OAuth · Wallet</dd></div>
@@ -58,8 +59,10 @@
           <pre><code>openidentity: "0.1"
 agent:
   name: "Axiom Assistant"
+  passport: "did:axiom:agent:axiomid"
 capabilities:
-  protocols: ["MCP", "A2A", "DID"]</code></pre>
+  protocols: ["MCP", "A2A", "DID"]
+identity: ["passport", "passport-qr", "did"]</code></pre>
         </aside>
       </section>
 
