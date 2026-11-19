@@ -1,67 +1,68 @@
-# How.now Hosting + Ghost Database Plan | خطة How.now و Ghost
+# PAI-Memory Deployment Plan | خطة PAI-Memory
 
 This repository is prepared for an agentic-services deployment path where:
 
-- **How.now** is the preferred agentic hosting target requested for the AxiomID/OpenIdentity frontend.
-- **Ghost** (`ghost.build`) is the preferred agent-native Postgres database layer for profile indexing, discovery metadata, access requests, pilot workspaces, and audit/event storage.
+- **Cloudflare Workers** is the edge hosting target for the AxiomID/OpenIdentity frontend and discovery files.
+- **PAI-Memory** is the 7-layer agent memory layer (D1 + Durable Objects) for profile indexing, discovery metadata, access requests, pilot workspaces, and audit/event storage.
 
-> Note: How.now deployment commands and environment variables should be replaced with the official provider values from the project dashboard or CLI. This document intentionally avoids hard-coding unverified provider-specific commands.
+> Note: Deployment uses the openidentity-md Cloudflare Worker with `frontend/` assets. PAI-Memory provides persistent, verifiable, shared agent memory.
 
 ## Service Architecture
 
 ```mermaid
 flowchart LR
-    User[Human / Enterprise User] --> HowNow[How.now Hosted Frontend]
+    User[Human / Enterprise User] --> Edge[Cloudflare Workers Edge]
     Agent[AI Agent / Crawler] --> Discovery[agentic.txt / agentic-index.json]
-    HowNow --> API[AxiomID API Layer]
-    API --> Ghost[(Ghost Postgres)]
-    Ghost --> Index[Profiles, Protocols, Verification, Requests]
+    Edge --> API[AxiomID API Layer]
+    API --> Memory[(PAI-Memory L2/L3 DOs)]
+    Memory --> Index[Profiles, Protocols, Verification, Requests]
     API --> Policies[Policy / Consent Layer]
-    Discovery --> HowNow
+    Discovery --> Edge
 ```
 
 ## Recommended Responsibilities
 
 | Layer | Service | Responsibility |
 |---|---|---|
-| Frontend hosting | How.now | Static AxiomID landing page, bilingual UI, docs links, discovery files |
-| Agent database | Ghost | Postgres-backed storage for profiles, discovery index, access requests, audit events |
+| Frontend hosting | Cloudflare Workers | Static AxiomID landing page, bilingual UI, docs links, discovery files |
+| Agent memory | PAI-Memory | 7-layer D1/DO-backed storage for profiles, discovery index, access requests, audit events |
 | Discovery files | Repo + hosted frontend | `agentic.txt`, `agentic.md`, `agentic-index.json`, optional `llms.txt` |
 | CI/CD | GitHub Actions | Validate JSON, build indexes, smoke-test frontend |
-| Fallback hosting | Vercel | Optional fallback if How.now deployment is unavailable |
+| Fallback hosting | Vercel | Optional fallback if Workers deployment is unavailable |
 
-## Ghost Database Tables for MVP
+## PAI-Memory Data Model for MVP
 
 ```sql
+-- D1 schema mirrors (PAI-Memory uses D1 + Durable Objects)
 create table if not exists profiles (
   id text primary key,
   display_name text not null,
   controller_type text not null,
   manifest_url text not null,
   verification_state text not null default 'self-attested',
-  languages text[] not null default array['en'],
-  protocols text[] not null default array[]::text[],
-  created_at timestamptz not null default now(),
-  updated_at timestamptz not null default now()
+  languages text not null default '["en"]',
+  protocols text not null default '[]',
+  created_at text not null default (datetime('now')),
+  updated_at text not null default (datetime('now'))
 );
 
 create table if not exists access_requests (
-  id uuid primary key default gen_random_uuid(),
-  profile_id text references profiles(id),
+  id text primary key,
+  profile_id text,
   requester_email text not null,
   requested_resource text not null,
-  consent_marketing boolean not null default false,
+  consent_marketing integer not null default 0,
   status text not null default 'pending',
-  created_at timestamptz not null default now()
+  created_at text not null default (datetime('now'))
 );
 
 create table if not exists discovery_events (
-  id uuid primary key default gen_random_uuid(),
+  id text primary key,
   profile_id text,
   event_type text not null,
   source text,
-  metadata jsonb not null default '{}'::jsonb,
-  created_at timestamptz not null default now()
+  metadata text not null default '{}',
+  created_at text not null default (datetime('now'))
 );
 ```
 
@@ -71,11 +72,11 @@ Use `.env.example` as the canonical local/CI reference.
 
 | Variable | Purpose |
 |---|---|
-| `HOW_NOW_PROJECT` | How.now project slug or app id |
-| `HOW_NOW_TOKEN` | CI deploy token for How.now |
-| `HOW_NOW_URL` | Confirmed production URL after deployment |
-| `GHOST_DATABASE_URL` | Ghost Postgres connection string |
-| `GHOST_BRANCH` | Optional branch/fork/database name for ephemeral agent work |
+| `CF_API_TOKEN` | Cloudflare API token for Workers/D1 deployment |
+| `CF_ACCOUNT_ID` | Cloudflare account ID |
+| `PAI_MEMORY_L2_DO` | PAI-Memory L2 Durable Object binding |
+| `PAI_MEMORY_L3_DO` | PAI-Memory L3 Durable Object binding |
+| `D1_DATABASE_ID` | PAI-Memory D1 database ID |
 | `AXIOMID_PUBLIC_URL` | Public canonical URL for the AxiomID frontend |
 
 ## Deployment Flow
@@ -92,19 +93,19 @@ python3 scripts/build_agentic_index.py
 npm run check
 ```
 
-3. Deploy to How.now using provider credentials:
+3. Deploy to Cloudflare Workers:
 
 ```bash
-HOW_NOW_TOKEN=... HOW_NOW_PROJECT=openidentity-md ./scripts/providers/deploy_how_now.sh
+npx wrangler deploy --name openidentity-md --assets=frontend --compatibility-date 2026-08-05
 ```
 
-4. Provision or connect Ghost database credentials:
+4. Apply PAI-Memory D1 migrations:
 
 ```bash
-GHOST_DATABASE_URL=postgres://... ./scripts/providers/ghost_schema.sql
+npx wrangler d1 execute pai-memory --file=./scripts/providers/pai_memory_schema.sql
 ```
 
-5. Confirm the live URL and set `HOW_NOW_URL` / `AXIOMID_PUBLIC_URL` in CI and repository settings.
+5. Confirm the live URL and set `AXIOMID_PUBLIC_URL` in CI and repository settings.
 
 ## Agentic Discovery Requirements
 
@@ -118,4 +119,4 @@ The hosted frontend should expose these public files at stable URLs:
 
 ## Arabic Summary | ملخص عربي
 
-تم تجهيز المستودع لمسار نشر يعتمد على **How.now** للاستضافة و **Ghost** كقاعدة بيانات Postgres موجهة للوكلاء. يجب استخدام How.now لاستضافة الواجهة وملفات الاكتشاف، واستخدام Ghost لتخزين ملفات الهوية، حالات التحقق، طلبات الوصول، وأحداث الفهرسة مع احترام الخصوصية والموافقة.
+تم تجهيز المستودع لمسار نشر يعتمد على **Cloudflare Workers** للاستضافة و **PAI-Memory** كطبقة ذاكرة وكلاء من 7 طبقات (D1 + Durable Objects). يستخدم Workers لاستضافة الواجهة وملفات الاكتشاف، ويستخدم PAI-Memory لتخزين ملفات الهوية، حالات التحقق، طلبات الوصول، وأحداث الفهرسة مع احترام الخصوصية والموافقة.

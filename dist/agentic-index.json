@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-16T21:27:22.323243+00:00",
+  "generated_at": "2026-08-05T06:01:37.394134+00:00",
   "project": "OpenIdentity",
   "product": "AxiomID",
   "canonical_manifest": "openidentity.md",
@@ -29,8 +29,8 @@
     "agentic.txt"
   ],
   "services": {
-    "hosting": "How.now",
-    "database": "Ghost Postgres",
+    "hosting": "Cloudflare Workers",
+    "memory": "PAI-Memory",
     "fallback_hosting": "Vercel"
   },
   "safety": {
@@ -50,8 +50,8 @@
       "kind": "overview",
       "title": "OpenIdentity | الهوية المفتوحة",
       "description": "Human-facing project overview and quick start",
-      "bytes": 16202,
-      "lines": 302,
+      "bytes": 16666,
+      "lines": 313,
       "missing": false
     },
     {
@@ -118,30 +118,39 @@
       "missing": false
     },
     {
+      "path": "docs/memory-discovery.md",
+      "kind": "memory-discovery",
+      "title": "PAI-Memory Discovery Guide | دليل اكتشاف PAI-Memory",
+      "description": "PAI-Memory discovery guide",
+      "bytes": 2787,
+      "lines": 68,
+      "missing": false
+    },
+    {
       "path": "docs/services/how-now-ghost.md",
       "kind": "agentic-services",
-      "title": "How.now Hosting + Ghost Database Plan | خطة How.now و Ghost",
-      "description": "How.now hosting and Ghost database integration plan",
-      "bytes": 4573,
+      "title": "PAI-Memory Deployment Plan | خطة PAI-Memory",
+      "description": "PAI-Memory deployment plan",
+      "bytes": 4435,
       "lines": 122,
       "missing": false
     },
     {
-      "path": "scripts/providers/deploy_how_now.sh",
+      "path": "scripts/providers/deploy_workers.sh",
       "kind": "deploy-script",
       "title": "!/usr/bin/env bash",
-      "description": "How.now deployment wrapper",
-      "bytes": 636,
-      "lines": 21,
+      "description": "Cloudflare Workers deployment wrapper",
+      "bytes": 834,
+      "lines": 29,
       "missing": false
     },
     {
-      "path": "scripts/providers/ghost_schema.sql",
+      "path": "scripts/providers/pai_memory_schema.sql",
       "kind": "database-schema",
       "title": "Untitled",
-      "description": "Ghost Postgres MVP schema",
-      "bytes": 1590,
-      "lines": 41,
+      "description": "PAI-Memory D1 schema",
+      "bytes": 1391,
+      "lines": 37,
       "missing": false
     },
     {
@@ -149,8 +158,8 @@
       "kind": "spec",
       "title": "OpenIdentity v0.1 Specification",
       "description": "OpenIdentity draft specification",
-      "bytes": 2654,
-      "lines": 54,
+      "bytes": 9509,
+      "lines": 222,
       "missing": false
     },
     {
@@ -176,8 +185,8 @@
       "kind": "example",
       "title": "Example Agent OpenIdentity Profile",
       "description": "Standard manifest example",
-      "bytes": 4899,
-      "lines": 102,
+      "bytes": 6191,
+      "lines": 123,
       "missing": false
     },
     {

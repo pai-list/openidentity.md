@@ -1,49 +1,85 @@
 <!doctype html>
-<html lang="en" dir="ltr" data-theme="dark">
+<html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>AxiomID — Identity for the Agentic Era</title>
-    <meta name="description" content="A bilingual, light/dark frontend prototype for AxiomID and OpenIdentity discovery." />
+    <title>OpenIdentity — The Open Agent Identity Standard</title>
+    <meta name="description" content="OpenIdentity is the open, bilingual discovery standard behind AxiomID. Every agent, controller, tool, memory index, wallet, and policy endpoint gets a portable, schema-validated identity manifest." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&family=Geist+Mono:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles.css" />
     <script defer src="app.js"></script>
   </head>
   <body>
+    <div class="glow-halo" aria-hidden="true"></div>
     <header class="site-header" aria-label="Primary navigation">
-      <a class="brand" href="#hero" aria-label="AxiomID home">
-        <span class="brand-mark">A</span>
-        <span><strong>AxiomID</strong><small>OpenIdentity</small></span>
+      <a class="brand" href="#hero" aria-label="OpenIdentity home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" width="32" height="32">
+            <defs>
+              <linearGradient id="brandGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#3b82f6"/>
+                <stop offset="50%" stop-color="#6366f1"/>
+                <stop offset="100%" stop-color="#22c55e"/>
+              </linearGradient>
+            </defs>
+            <!-- Outer ring - discovery/connection -->
+            <circle cx="16" cy="16" r="14" stroke="url(#brandGradient)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-dasharray="87.96" stroke-dashoffset="0"/>
+            <!-- Inner identity mark - person + key/connection -->
+            <path d="M16 10c-2.2 0-4 1.8-4 4s1.8 4 4 4 4-1.8 4-4-1.8-4-4-4zm0 6c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z" fill="url(#brandGradient)"/>
+            <!-- Connection nodes - decentralized -->
+            <circle cx="8" cy="24" r="1.5" fill="#3b82f6" opacity="0.8"/>
+            <circle cx="24" cy="24" r="1.5" fill="#6366f1" opacity="0.8"/>
+            <circle cx="16" cy="8" r="1.5" fill="#22c55e" opacity="0.8"/>
+            <!-- Connecting lines -->
+            <path d="M9.5 22.5 L14.5 14.5" stroke="url(#brandGradient)" stroke-width="1.2" stroke-linecap="round" opacity="0.6"/>
+            <path d="M22.5 22.5 L17.5 14.5" stroke="url(#brandGradient)" stroke-width="1.2" stroke-linecap="round" opacity="0.6"/>
+            <path d="M16 9.5 L16 14.5" stroke="url(#brandGradient)" stroke-width="1.2" stroke-linecap="round" opacity="0.6"/>
+          </svg>
+        </span>
+        <span class="brand-text"><strong>OpenIdentity</strong><small data-i18n="brand_tagline">open standard · AxiomID</small></span>
       </a>
       <nav class="nav-links" aria-label="Page sections">
-        <a data-i18n="nav_product" href="#product">Product</a>
+        <a data-i18n="nav_standard" href="#standard">Standard</a>
         <a data-i18n="nav_protocols" href="#protocols">Protocols</a>
         <a data-i18n="nav_use_cases" href="#use-cases">Use cases</a>
-        <a data-i18n="nav_services" href="#services">Services</a>
+        <a data-i18n="nav_memory" href="#services">Memory</a>
         <a data-i18n="nav_docs" href="#docs">Docs</a>
       </nav>
       <div class="header-actions">
-        <button class="pill-button" id="languageToggle" type="button" aria-label="Switch language">العربية</button>
-        <button class="icon-button" id="themeToggle" type="button" aria-label="Toggle color theme">◐</button>
+        <button class="btn-ghost lang-toggle" id="languageToggle" type="button" aria-label="Switch language">العربية</button>
+        <button class="btn-toggle icon-button" id="themeToggle" type="button" aria-label="Toggle color theme">☀</button>
       </div>
     </header>
 
     <main>
       <section id="hero" class="hero section-grid">
         <div class="hero-copy">
-          <p class="eyebrow" data-i18n="hero_eyebrow">Built for agents, trusted by humans</p>
-          <h1 data-i18n="hero_title">Identity for the agentic era.</h1>
-          <p class="lede" data-i18n="hero_lede">AxiomID turns every AI agent, controller, tool, memory index, wallet, and policy endpoint into a discoverable OpenIdentity profile.</p>
+          <div class="hero-badge">
+            <span class="badge-dot" aria-hidden="true"></span>
+            <span data-i18n="hero_eyebrow">The open standard · the agentic era</span>
+          </div>
+          <h1 class="hero-title">
+            <span data-i18n="hero_line1">The open standard for the</span>
+            <span class="gradient-text" data-i18n="hero_line2">agentic era.</span>
+          </h1>
+          <p class="lede" data-i18n="hero_lede">OpenIdentity is the portable, bilingual identity manifest that makes every AI agent, controller, tool, memory index, wallet, and policy endpoint discoverable, verifiable, and schema-safe.</p>
           <div class="cta-row">
-            <a class="primary-cta" href="../examples/minimal.openidentity.md" data-i18n="cta_create">Create an OpenIdentity</a>
-            <a class="secondary-cta" href="../spec/openidentity-v0.1.md" data-i18n="cta_spec">Read the spec</a>
+            <a class="btn-primary" href="https://github.com/pai-list/openidentity.md/blob/main/spec/openidentity-v0.1.md" data-i18n="cta_spec">Read the spec</a>
+            <a class="btn-ghost" href="agentic.txt" data-i18n="cta_discovery">agentic.txt</span></a>
           </div>
           <div class="trust-row" aria-label="Trust indicators">
-            <span>✓ <span data-i18n="trust_bilingual">English + Arabic</span></span>
-            <span>✓ <span data-i18n="trust_dark">Light/Dark</span></span>
-            <span>✓ <span data-i18n="trust_schema">Schema validated</span></span>
+            <span><span class="trust-dot" aria-hidden="true"></span>W3C DID · VC</span>
+            <span><span class="trust-dot" aria-hidden="true"></span>MCP · A2A</span>
+            <span><span class="trust-dot" aria-hidden="true"></span><span data-i18n="trust_bilingual">English + Arabic</span></span>
+            <span><span class="trust-dot" aria-hidden="true"></span><span data-i18n="trust_schema">Schema validated</span></span>
           </div>
         </div>
-        <aside class="identity-card" aria-label="Example identity profile card">
+        <aside class="identity-card glass-card" aria-label="Example identity profile card">
           <div class="card-header">
             <span class="avatar">AX</span>
             <div><strong>Axiom Assistant</strong><small>did:web:axiomid.app:agents:assistant</small></div>
@@ -51,7 +87,7 @@
           <div class="status-line"><span class="status-dot"></span><span data-i18n="verified_controller">Verified human controller</span></div>
           <dl class="profile-grid">
             <div><dt data-i18n="role">Role</dt><dd>Research · Automation</dd></div>
-            <div><dt data-i18n="memory">Memory</dt><dd>Policy-gated index</dd></div>
+            <div><dt data-i18n="memory">Memory</dt><dd>PAI-Memory index</dd></div>
             <div><dt data-i18n="tools">Tools</dt><dd>MCP registry</dd></div>
             <div><dt data-i18n="auth">Auth</dt><dd>OAuth · Wallet</dd></div>
           </dl>
@@ -63,11 +99,11 @@ capabilities:
         </aside>
       </section>
 
-      <section id="product" class="section shell">
+      <section id="standard" class="section shell">
         <div class="section-heading">
-          <p class="eyebrow" data-i18n="product_eyebrow">Complete UI/UX system</p>
-          <h2 data-i18n="product_title">A frontend that explains, verifies, and converts.</h2>
-          <p data-i18n="product_body">Use these page patterns for the MVP landing site, docs portal, proof-of-concept workspace, and enterprise trust center.</p>
+          <div class="hero-badge"><span class="badge-dot" aria-hidden="true"></span><span data-i18n="product_eyebrow">Format first</span></div>
+          <h2 class="section-title" data-i18n="product_title">One manifest format. Discovery everywhere.</h2>
+          <p class="section-lede" data-i18n="product_body">OpenIdentity gives every agent a canonical file — rendered as openidentity.md, indexed as agentic.txt, validated against a JSON Schema, and served in English and Arabic.</p>
         </div>
         <div class="feature-grid">
           <article class="feature-card"><span>01</span><h3 data-i18n="feature_search_title">Discovery search</h3><p data-i18n="feature_search_body">Search agents by role, domain, protocol, wallet, organization, language, and verification state.</p></article>
@@ -79,25 +115,25 @@ capabilities:
 
       <section id="protocols" class="section protocol-band">
         <div class="section-heading compact">
-          <p class="eyebrow" data-i18n="protocol_eyebrow">Marketing strip</p>
-          <h2 data-i18n="protocol_title">Protocol logos become trust shortcuts.</h2>
+          <p class="eyebrow" data-i18n="protocol_eyebrow">Protocol-agnostic</p>
+          <h2 class="section-title" data-i18n="protocol_title">Protocol logos become trust shortcuts.</h2>
         </div>
         <div class="protocol-grid" aria-label="Supported protocols">
-          <div class="protocol"><span>🧩</span><strong>MCP</strong><small>Tools</small></div>
-          <div class="protocol"><span>🤝</span><strong>A2A</strong><small>Handoffs</small></div>
-          <div class="protocol"><span>🪪</span><strong>DID</strong><small>Identifiers</small></div>
-          <div class="protocol"><span>✅</span><strong>VC</strong><small>Claims</small></div>
-          <div class="protocol"><span>🔐</span><strong>OAuth/OIDC</strong><small>Auth</small></div>
-          <div class="protocol"><span>💳</span><strong>Wallet</strong><small>SIWE · CAIP</small></div>
-          <div class="protocol"><span>📄</span><strong>agentic.txt</strong><small>Discovery</small></div>
+          <div class="protocol glass-card"><span>🧩</span><strong>MCP</strong><small>Tools</small></div>
+          <div class="protocol glass-card"><span>🤝</span><strong>A2A</strong><small>Handoffs</small></div>
+          <div class="protocol glass-card"><span>🪪</span><strong>DID</strong><small>Identifiers</small></div>
+          <div class="protocol glass-card"><span>✅</span><strong>VC</strong><small>Claims</small></div>
+          <div class="protocol glass-card"><span>🔐</span><strong>OAuth/OIDC</strong><small>Auth</small></div>
+          <div class="protocol glass-card"><span>💳</span><strong>Wallet</strong><small>SIWE · CAIP</small></div>
+          <div class="protocol glass-card"><span>📄</span><strong>agentic.txt</strong><small>Discovery</small></div>
         </div>
       </section>
 
       <section id="use-cases" class="section shell two-column">
         <div>
           <p class="eyebrow" data-i18n="use_eyebrow">Enterprise MVP</p>
-          <h2 data-i18n="use_title">Proof-of-concept pages that matter.</h2>
-          <p data-i18n="use_body">Start with the flows that prove trust: create profile, validate manifest, verify controller, publish discovery files, search, request access, and measure demand.</p>
+          <h2 class="section-title" data-i18n="use_title">Proof-of-concept pages that matter.</h2>
+          <p class="section-lede" data-i18n="use_body">Start with the flows that prove trust: create profile, validate manifest, verify controller, publish discovery files, search, request access, and measure demand.</p>
         </div>
         <ul class="timeline">
           <li><strong data-i18n="flow_create">Create profile</strong><span>openidentity.md + AxiomID URL</span></li>
@@ -107,31 +143,30 @@ capabilities:
         </ul>
       </section>
 
-
       <section id="services" class="section shell service-stack">
         <div class="section-heading compact">
-          <p class="eyebrow" data-i18n="services_eyebrow">Agentic services</p>
-          <h2 data-i18n="services_title">How.now for hosting. Ghost for database.</h2>
-          <p data-i18n="services_body">Deploy the bilingual frontend and discovery files to How.now, then store profiles, access requests, verification states, and discovery events in Ghost Postgres.</p>
+          <p class="eyebrow" data-i18n="services_eyebrow">Storage & state</p>
+          <h2 class="section-title" data-i18n="services_title">Edge-served. PAI-Memory backed.</h2>
+          <p class="section-lede" data-i18n="services_body">The bilingual frontend and discovery files are served from the edge; profiles, access requests, verification states, and discovery events live in PAI-Memory — persistent, verifiable, shared.</p>
         </div>
         <div class="feature-grid two-cards">
-          <article class="feature-card"><span>HN</span><h3>How.now</h3><p data-i18n="services_hosting">Agentic hosting target for the static frontend, docs entry points, and discovery files.</p></article>
-          <article class="feature-card"><span>GH</span><h3>Ghost</h3><p data-i18n="services_database">Agent-native Postgres database layer for indexes, profiles, requests, and audit events.</p></article>
+          <article class="feature-card"><span>ED</span><h3 data-i18n="services_hosting_title">Edge static</h3><p data-i18n="services_hosting">Workers-served frontend, docs entry points, and discovery files — fast, global, no database.</p></article>
+          <article class="feature-card"><span>PM</span><h3 data-i18n="services_database_title">PAI-Memory</h3><p data-i18n="services_database">7-layer agent memory. Persistent, verifiable, shared. Stores indexes, profiles, requests, and audit events.</p></article>
         </div>
       </section>
 
       <section id="docs" class="section docs-panel">
         <div class="section-heading compact">
           <p class="eyebrow" data-i18n="docs_eyebrow">Indexable by default</p>
-          <h2 data-i18n="docs_title">Every important page has a discovery path.</h2>
+          <h2 class="section-title" data-i18n="docs_title">Every important page has a discovery path.</h2>
         </div>
         <div class="doc-links">
-          <a href="../README.md">README</a>
-          <a href="../docs/landing-page.md">Landing blueprint</a>
-          <a href="../docs/mvp-poc-use-cases.md">MVP / POC</a>
-          <a href="../docs/indexing/agentic-indexing.md">Indexing</a>
-          <a href="../agentic.md">agentic.md</a>
-          <a href="../agentic.txt">agentic.txt</a>
+          <a href="agentic.txt">agentic.txt</a>
+          <a href="agentic.md">agentic.md</a>
+          <a href="https://github.com/pai-list/openidentity.md">Repository</a>
+          <a href="https://github.com/pai-list/openidentity.md/blob/main/spec/openidentity-v0.1.md">Spec</a>
+          <a href="https://github.com/pai-list/openidentity.md/blob/main/examples/minimal.openidentity.md">Example</a>
+          <a href="https://github.com/pai-list/openidentity.md/blob/main/docs/memory-discovery.md">Memory discovery</a>
         </div>
       </section>
     </main>

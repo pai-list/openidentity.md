@@ -1,46 +1,106 @@
+/* ============================================================
+   OpenIdentity — unified with AxiomID design system
+   Tokens mirror layer-1-identity/AxiomID/src/app/globals.css
+   ============================================================ */
 :root {
-  color-scheme: light dark;
-  --bg: #ffffff;
-  --surface: #f6f8fb;
-  --surface-strong: #e8edf5;
-  --text: #111827;
-  --muted: #5b6472;
-  --brand: #0a66c2;
-  --gold: #f59e0b;
-  --violet: #6f42c1;
-  --ring: rgba(10, 102, 194, 0.28);
-  --shadow: 0 24px 80px rgba(17, 24, 39, 0.14);
+  color-scheme: dark;
+
+  --color-primary: #3b82f6;
+  --color-primary-hover: #2563eb;
+  --color-success: #22c55e;
+  --color-success-hover: #16a34a;
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
+
+  --neon-green: var(--color-success);
+  --neon-green-glow: rgba(34, 197, 94, 0.08);
+  --electric-blue: var(--color-primary);
+  --axiom-purple: #6366f1;
+  --axiom-gold: var(--color-warning);
+
+  --bg-deep: #10131a;
+  --bg-card: #1d2027;
+  --bg-card-hover: #272a31;
+  --bg-card-high: #32353c;
+  --bg-card-dim: #191b23;
+  --card-border: #424754;
+  --card-border-hover: #8c909f;
+
+  --text-primary: #fafafa;
+  --text-secondary: #e4e4e7;
+  --text-muted: #b4b4bb;
+
+  --surface: var(--bg-card);
+  --surface-hover: var(--bg-card-hover);
+  --border: var(--card-border);
+  --text: var(--text-primary);
+  --text-subtle: var(--text-secondary);
+  --text-faint: var(--text-muted);
+
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.05);
+  --glass-border-hover: rgba(255, 255, 255, 0.1);
+
+  --glow-primary: 0 0 20px -4px rgba(59, 130, 246, 0.15), 0 0 40px -8px rgba(59, 130, 246, 0.08);
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-[data-theme="dark"] {
-  --bg: #05070d;
-  --surface: #10131f;
-  --surface-strong: #191e2f;
-  --text: #f8fafc;
-  --muted: #a1a8b3;
-  --brand: #58a6ff;
-  --gold: #fbbf24;
-  --violet: #a78bfa;
-  --ring: rgba(88, 166, 255, 0.28);
-  --shadow: 0 24px 80px rgba(0, 0, 0, 0.42);
+[data-theme='light'] {
+  color-scheme: light;
+  --color-primary: #2563eb;
+  --color-primary-hover: #1d4ed8;
+  --color-success: #16a34a;
+  --color-warning: #d97706;
+  --color-danger: #dc2626;
+  --axiom-purple: #4f46e5;
+
+  --bg-deep: #f8f9fc;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f1f3f7;
+  --bg-card-high: #e8ecf2;
+  --bg-card-dim: #f4f5f8;
+  --card-border: #d4d8e3;
+  --card-border-hover: #9ca3b0;
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+
+  --glass-bg: rgba(0, 0, 0, 0.05);
+  --glass-border: rgba(0, 0, 0, 0.05);
+  --glass-border-hover: rgba(0, 0, 0, 0.1);
+
+  --glow-primary: 0 0 16px -4px rgba(37, 99, 235, 0.12), 0 0 32px -8px rgba(37, 99, 235, 0.06);
 }
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
+
 body {
   margin: 0;
   min-width: 320px;
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background:
-    radial-gradient(circle at top left, rgba(10, 102, 194, 0.18), transparent 34rem),
-    radial-gradient(circle at 80% 10%, rgba(245, 158, 11, 0.14), transparent 28rem),
-    var(--bg);
-  color: var(--text);
+  font-family: Geist, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--bg-deep);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  animation: page-in 0.4s var(--ease) both;
 }
 
 body[dir="rtl"] { font-family: "IBM Plex Sans Arabic", "Noto Sans Arabic", Tahoma, Arial, sans-serif; }
 a { color: inherit; text-decoration: none; }
 
+/* ── Ambient halo (hero energy) ─────────────────────────── */
+.glow-halo {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(99, 102, 241, 0.06) 0%, transparent 40%),
+    radial-gradient(ellipse at 50% 80%, rgba(34, 197, 94, 0.04) 0%, transparent 50%);
+}
+
+/* ── Header ─────────────────────────────────────────────── */
 .site-header {
   position: sticky;
   top: 0;
@@ -50,8 +110,8 @@ a { color: inherit; text-decoration: none; }
   justify-content: space-between;
   gap: 1rem;
   padding: 1rem clamp(1rem, 4vw, 4rem);
-  background: color-mix(in srgb, var(--bg) 84%, transparent);
-  border-bottom: 1px solid color-mix(in srgb, var(--muted) 20%, transparent);
+  background: color-mix(in srgb, var(--bg-deep) 84%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--card-border) 60%, transparent);
   backdrop-filter: blur(18px);
 }
 
@@ -61,86 +121,206 @@ a { color: inherit; text-decoration: none; }
   width: 2.5rem;
   height: 2.5rem;
   place-items: center;
-  border-radius: 0.9rem;
-  color: #05070d;
-  background: linear-gradient(135deg, var(--gold), var(--brand));
-  font-weight: 900;
+  filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.3));
+  transition: transform 0.3s var(--ease), filter 0.3s var(--ease);
 }
-.brand small { display: block; color: var(--muted); font-size: 0.75rem; }
-.nav-links { color: var(--muted); font-size: 0.95rem; }
-.nav-links a:hover { color: var(--text); }
+.brand-mark:hover { transform: scale(1.05) rotate(-2deg); filter: drop-shadow(0 0 16px rgba(59, 130, 246, 0.5)); }
+.brand-mark svg { width: 100%; height: 100%; }
+.brand-text { display: flex; flex-direction: column; line-height: 1.1; }
+.brand-text strong { font-size: 1.1rem; font-weight: 700; letter-spacing: -0.02em; }
+.brand-text small { font-size: 0.65rem; color: var(--text-muted); font-family: "Geist Mono", monospace; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; }
+.nav-links { color: var(--text-muted); font-size: 0.9rem; }
+.nav-links a:hover { color: var(--text-primary); }
+.nav-links a { padding: 0.35rem 0.4rem; border-radius: 0.4rem; }
+.nav-links a:focus-visible, .doc-links a:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 2px; }
 
-button, .primary-cta, .secondary-cta {
+/* ── Buttons (unified with AxiomID .btn-*) ──────────────── */
+button, .btn-primary, .btn-ghost, .lang-toggle, .icon-button {
   border: 0;
-  border-radius: 999px;
   cursor: pointer;
   font: inherit;
+  min-height: 44px;
 }
-.pill-button, .icon-button {
-  background: var(--surface);
-  color: var(--text);
-  border: 1px solid color-mix(in srgb, var(--muted) 22%, transparent);
-  padding: 0.65rem 0.9rem;
-}
-.icon-button { width: 2.6rem; height: 2.6rem; }
 
+.btn-primary, .btn-ghost, .lang-toggle, .icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 0.5rem;
+  font-family: "Geist Mono", monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: all 0.15s ease;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  border: 1px solid transparent;
+  color: #fff;
+  padding: 0.7rem 1.4rem;
+  box-shadow: var(--glow-primary);
+}
+.btn-primary:hover { background: var(--color-primary-hover); }
+.btn-primary:active { transform: scale(0.98); }
+
+.btn-ghost, .lang-toggle, .icon-button {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--card-border);
+  color: var(--text-secondary);
+  padding: 0.7rem 1rem;
+}
+.btn-ghost:hover, .lang-toggle:hover, .icon-button:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--card-border-hover);
+  color: var(--text-primary);
+}
+[data-theme='light'] .btn-ghost, [data-theme='light'] .lang-toggle, [data-theme='light'] .icon-button {
+  background: rgba(0, 0, 0, 0.02);
+}
+[data-theme='light'] .btn-ghost:hover, [data-theme='light'] .lang-toggle:hover, [data-theme='light'] .icon-button:hover {
+  background: var(--bg-card-hover);
+}
+.icon-button { width: 2.9rem; height: 2.9rem; padding: 0; }
+
+button:focus-visible, a:focus-visible { outline: 2px solid var(--color-success); outline-offset: 2px; }
+button:not(:focus-visible), a:not(:focus-visible) { outline: none; }
+
+/* ── Layout ─────────────────────────────────────────────── */
 .section { padding: clamp(4rem, 8vw, 7rem) clamp(1rem, 5vw, 5rem); }
 .shell, .hero { max-width: 1180px; margin: 0 auto; }
 .section-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.75fr); gap: clamp(2rem, 5vw, 5rem); align-items: center; }
 .hero { min-height: calc(100vh - 5rem); padding: 4rem clamp(1rem, 4vw, 3rem); }
-.eyebrow { color: var(--gold); font-weight: 800; letter-spacing: 0.11em; text-transform: uppercase; }
-h1, h2 { margin: 0; letter-spacing: -0.055em; line-height: 0.95; }
-h1 { font-size: clamp(3.4rem, 9vw, 7.6rem); max-width: 11ch; }
-h2 { font-size: clamp(2.4rem, 6vw, 5rem); }
-.lede, .section-heading p, .two-column p { color: var(--muted); font-size: clamp(1.05rem, 2vw, 1.35rem); line-height: 1.7; max-width: 62ch; }
-.cta-row, .trust-row { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; margin-top: 2rem; }
-.primary-cta, .secondary-cta { display: inline-flex; padding: 0.95rem 1.25rem; font-weight: 800; }
-.primary-cta { color: #05070d; background: linear-gradient(135deg, var(--gold), var(--brand)); box-shadow: 0 0 0 0.35rem var(--ring); }
-.secondary-cta { background: var(--surface); border: 1px solid color-mix(in srgb, var(--muted) 22%, transparent); }
-.trust-row { color: var(--muted); font-size: 0.95rem; }
-
-.identity-card, .feature-card, .protocol, .docs-panel {
-  background: linear-gradient(180deg, color-mix(in srgb, var(--surface) 88%, transparent), var(--surface));
-  border: 1px solid color-mix(in srgb, var(--muted) 22%, transparent);
-  box-shadow: var(--shadow);
+.eyebrow { color: var(--axiom-gold); font-weight: 700; letter-spacing: 0.11em; text-transform: uppercase; font-size: 0.8rem; font-family: "Geist Mono", monospace; }
+h1, h2 { margin: 0; letter-spacing: -0.04em; line-height: 1.05; }
+.hero-title { font-size: clamp(2.8rem, 7vw, 5.4rem); font-weight: 800; max-width: 12ch; }
+.section-title { font-size: clamp(2rem, 4.5vw, 3.4rem); font-weight: 700; }
+.gradient-text {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--axiom-purple) 50%, var(--color-success) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
-.identity-card { border-radius: 2rem; padding: 1.25rem; transform: rotate(1.2deg); }
+.lede, .section-lede, .section-heading p, .two-column p { color: var(--text-muted); font-size: clamp(1.05rem, 2vw, 1.25rem); line-height: 1.7; max-width: 62ch; }
+
+/* ── Hero extras ────────────────────────────────────────── */
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: 9999px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  font-family: "Geist Mono", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+.badge-dot { width: 0.5rem; height: 0.5rem; border-radius: 50%; background: var(--color-success); box-shadow: 0 0 8px rgba(34, 197, 94, 0.6); animation: pulse-glow 1.5s ease-in-out infinite; }
+.cta-row, .trust-row { display: flex; flex-wrap: wrap; gap: 0.9rem; align-items: center; margin-top: 2rem; }
+.trust-row { color: var(--text-muted); font-size: 0.78rem; font-family: "Geist Mono", monospace; letter-spacing: 0.03em; }
+.trust-row span { display: inline-flex; align-items: center; gap: 0.45rem; }
+.trust-dot { width: 0.35rem; height: 0.35rem; border-radius: 50%; background: var(--color-success); }
+
+/* ── Cards (glass + bento language) ─────────────────────── */
+.glass-card, .identity-card, .feature-card, .protocol, .docs-panel {
+  background: var(--bg-card);
+  border: 1px solid var(--card-border);
+  border-radius: 1rem;
+  transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease), border-color 0.2s var(--ease);
+}
+.glass-card:hover, .feature-card:hover, .protocol:hover {
+  border-color: var(--card-border-hover);
+  transform: translateY(-2px);
+}
+.identity-card { border-radius: 1.25rem; padding: 1.25rem; transform: rotate(1.2deg); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35); }
 .card-header { display: flex; align-items: center; gap: 1rem; }
-.avatar { display: grid; place-items: center; width: 3.4rem; height: 3.4rem; border-radius: 1.2rem; background: var(--surface-strong); color: var(--brand); font-weight: 900; }
-.card-header small { display: block; color: var(--muted); margin-top: 0.2rem; overflow-wrap: anywhere; }
-.status-line { display: flex; align-items: center; gap: 0.55rem; margin: 1rem 0; color: var(--muted); }
-.status-dot { width: 0.7rem; height: 0.7rem; border-radius: 50%; background: #22c55e; box-shadow: 0 0 0 0.3rem rgba(34, 197, 94, 0.15); }
+.avatar {
+  display: grid;
+  place-items: center;
+  width: 3.4rem;
+  height: 3.4rem;
+  border-radius: 0.8rem;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--axiom-purple) 100%);
+  color: #fff;
+  font-weight: 800;
+}
+.card-header small { display: block; color: var(--text-muted); margin-top: 0.2rem; overflow-wrap: anywhere; font-family: "Geist Mono", monospace; font-size: 0.72rem; }
+.status-line { display: flex; align-items: center; gap: 0.55rem; margin: 1rem 0; color: var(--text-muted); font-size: 0.9rem; }
+.status-dot { width: 0.7rem; height: 0.7rem; border-radius: 50%; background: var(--color-success); box-shadow: 0 0 0 0.3rem rgba(34, 197, 94, 0.15); animation: pulse-glow 2s ease-in-out infinite; }
 .profile-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; margin: 0; }
-.profile-grid div { padding: 0.9rem; border-radius: 1rem; background: var(--surface-strong); }
-dt { color: var(--muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; }
-dd { margin: 0.25rem 0 0; font-weight: 800; }
-pre { overflow: auto; padding: 1rem; border-radius: 1rem; background: #05070d; color: #dbeafe; }
+.profile-grid div { padding: 0.9rem; border-radius: 0.75rem; background: var(--bg-card-dim); border: 1px solid var(--glass-border); }
+dt { color: var(--text-muted); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; font-family: "Geist Mono", monospace; }
+dd { margin: 0.25rem 0 0; font-weight: 700; }
+pre { overflow: auto; padding: 1rem; border-radius: 0.75rem; background: var(--bg-deep); color: #dbeafe; border: 1px solid var(--glass-border); font-family: "Geist Mono", monospace; font-size: 0.8rem; }
 
 .section-heading { margin-bottom: 2rem; }
 .compact { max-width: 760px; margin-inline: auto; text-align: center; }
 .feature-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
-.feature-card { border-radius: 1.4rem; padding: 1.25rem; box-shadow: none; }
-.feature-card span { color: var(--brand); font-weight: 900; }
-.feature-card p { color: var(--muted); line-height: 1.6; }
-.protocol-band { background: color-mix(in srgb, var(--surface) 62%, transparent); }
+.feature-card { border-radius: 1rem; padding: 1.25rem; }
+.feature-card span { color: var(--color-primary); font-weight: 800; font-family: "Geist Mono", monospace; }
+.feature-card h3 { margin: 0.75rem 0 0.5rem; font-size: 1.1rem; }
+.feature-card p { color: var(--text-muted); line-height: 1.6; margin: 0; }
+
+.protocol-band { background: color-mix(in srgb, var(--bg-card) 55%, transparent); }
 .protocol-grid, .doc-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; }
-.protocol { min-width: 9rem; border-radius: 1.2rem; padding: 1rem; text-align: center; box-shadow: none; }
+.protocol { min-width: 9rem; padding: 1rem; text-align: center; border-radius: 1rem; }
 .protocol span { display: block; font-size: 2rem; }
-.protocol small { display: block; color: var(--muted); }
+.protocol small { display: block; color: var(--text-muted); }
+.protocol strong { font-family: "Geist Mono", monospace; }
+
 .two-column { display: grid; grid-template-columns: 0.8fr 1fr; gap: 3rem; align-items: start; }
 .timeline { list-style: none; display: grid; gap: 1rem; margin: 0; padding: 0; }
-.timeline li { padding: 1rem 1.2rem; border-inline-start: 0.3rem solid var(--gold); background: var(--surface); border-radius: 1rem; }
-.timeline span { display: block; color: var(--muted); margin-top: 0.2rem; }
-.docs-panel { margin: clamp(1rem, 5vw, 5rem); border-radius: 2rem; }
-.doc-links a { padding: 0.85rem 1rem; border-radius: 999px; background: var(--surface-strong); color: var(--muted); }
-.doc-links a:hover { color: var(--text); }
+.timeline li { padding: 1rem 1.2rem; border-inline-start: 0.3rem solid var(--color-warning); background: var(--bg-card); border-radius: 0.75rem; border-inline-end: 1px solid var(--card-border); }
+.timeline span { display: block; color: var(--text-muted); margin-top: 0.2rem; font-family: "Geist Mono", monospace; font-size: 0.8rem; }
 
+.service-stack { border-radius: 1.25rem; background: color-mix(in srgb, var(--bg-card) 45%, transparent); border: 1px solid var(--card-border); }
+.two-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+.docs-panel { margin: clamp(1rem, 5vw, 5rem); border-radius: 1.25rem; padding: clamp(2rem, 4vw, 4rem); }
+.doc-links a { padding: 0.8rem 1.1rem; border-radius: 0.5rem; background: var(--bg-card-dim); color: var(--text-muted); border: 1px solid var(--glass-border); font-family: "Geist Mono", monospace; font-size: 0.8rem; transition: all 0.15s ease; }
+.doc-links a:hover { color: var(--text-primary); border-color: var(--card-border-hover); }
+
+/* ── Animation utilities (mirror AxiomID) ──────────────── */
+@keyframes page-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.skeleton-shimmer {
+  background: linear-gradient(90deg, var(--bg-card) 25%, var(--bg-card-hover) 50%, var(--bg-card) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+  border-radius: 0.5rem;
+}
+
+/* ── Reduced motion ─────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .identity-card { transform: none; }
+}
+
+/* ── Responsive ─────────────────────────────────────────── */
 @media (max-width: 900px) {
   .nav-links { display: none; }
   .section-grid, .two-column, .feature-grid { grid-template-columns: 1fr; }
   .identity-card { transform: none; }
 }
-
-.service-stack { border-radius: 2rem; background: color-mix(in srgb, var(--surface) 54%, transparent); }
-.two-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 @media (max-width: 900px) { .two-cards { grid-template-columns: 1fr; } }
